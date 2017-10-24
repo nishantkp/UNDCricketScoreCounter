@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    tools:context="com.example.android.undcricketscorecounter.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Team A"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/team_a_score"
+                    style="@style/homeScreenRunsTextView"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/team_a_wicket"
+                    style="@style/homeScreenWicketTextView"
+                    android:text="0" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/team_a_strike_rate"
+                style="@style/homeScreenStrikeRateTextView"
+                android:text="0.0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dividerColor"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/homeScreenBallCountButton"
+                    android:onClick="teamABallCount"
+                    android:text="ball"
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/team_a_ball"
+                    style="@style/homeScreenBallCountTextView"
+                    android:text="0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="8dp">
+
+                <Button
+                    style="@style/homeScreenScoreButton"
+                    android:onClick="teamAOneRun"
+                    android:text="+1" />
+
+                <Button
+                    style="@style/homeScreenScoreButton"
+                    android:onClick="teamATwoRun"
+                    android:text="+2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/homeScreenScoreButton"
+                    android:onClick="teamAThreeRun"
+                    android:text="+3" />
+
+                <Button
+                    style="@style/homeScreenScoreButton"
+                    android:onClick="teamAFourRun"
+                    android:text="+4" />
+            </LinearLayout>
+
+            <Button
+                style="@style/homeScreenScoreButton"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center"
+                android:onClick="teamASixRun"
+                android:text="+6" />
+
+            <Button
+                style="@style/homeScreenWicketButton"
+                android:onClick="teamAOut"
+                android:text="wicket"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Team B"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/team_b_score"
+                    style="@style/homeScreenRunsTextView"
+                    android:text="0" />
+
+                <TextView
+                    android:id="@+id/team_b_wicket"
+                    style="@style/homeScreenWicketTextView"
+                    android:text="0" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/team_b_strike_rate"
+                style="@style/homeScreenStrikeRateTextView"
+                android:text="0.0" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/dividerColor"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/team_b_ball"
+                    style="@style/homeScreenBallCountTextView"
+                    android:text="0" />
+
+                <Button
+                    style="@style/homeScreenBallCountButton"
+                    android:onClick="teamBBallCount"
+                    android:text="ball"
+                    android:textAllCaps="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="8dp">
+
+                <Button
+                    style="@style/homeScreenScoreButton"
+                    android:onClick="teamBOneRun"
+                    android:text="+1" />
+
+                <Button
+                    style="@style/homeScreenScoreButton"
+                    android:onClick="teamBTwoRun"
+                    android:text="+2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/homeScreenScoreButton"
+                    android:onClick="teamBThreeRun"
+                    android:text="+3" />
+
+                <Button
+                    style="@style/homeScreenScoreButton"
+                    android:onClick="teamBFourRun"
+                    android:text="+4" />
+            </LinearLayout>
+
+            <Button
+                style="@style/homeScreenScoreButton"
+                android:layout_gravity="center"
+                android:onClick="teamBSixRun"
+                android:text="+6" />
+
+            <Button
+                style="@style/homeScreenWicketButton"
+                android:onClick="teamBOut"
+                android:text="wicket"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        style="@style/homeScreenResetButton"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:onClick="reset"
+        android:text="reset"
+        android:textAllCaps="false" />
+</LinearLayout>
