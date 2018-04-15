@@ -1,14 +1,24 @@
 # Cricket Score Counter
 
-## Single Page App
-User can count score of two cricket teams as well as keep track of strike rate, ball counts, wickets etc.
+Project as a part of nano-degree at [Udacity](https://www.udacity.com/)
+
+### Project Overview
+
+The goal is to create an Score Keeper app which gives a user the ability to keep track of the score of two different teams playing a game of your choice.
+
+
+#### Helpers :smiley:
+- Buttons
+- Variable scope
+- Finding views by ID
+- Updating views
+
 
 ### UX Design
 <img src="https://user-images.githubusercontent.com/32653955/31924049-a5201c44-b84c-11e7-909c-79a7bee409a1.png" width="275" height="475"> <img src="https://user-images.githubusercontent.com/32653955/31924067-b8537aea-b84c-11e7-8152-4c24c8547f64.png" width="275" height="475">
 
+## PROJECT LICENSE
 ```
-PROJECT LICENSE
-
 This project was submitted by Nishant Patel as part of the Nanodegree At Udacity.
 
 As part of Udacity Honor code, your submissions must be your own work, hence
