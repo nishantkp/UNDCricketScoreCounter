@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
     /* Total runs for Team A */
     int teamARuns = 0;
@@ -29,43 +32,43 @@ public class MainActivity extends AppCompatActivity {
     double teamBStrikeRate = 0.0;
 
     /* TextView for displaying total runs for Team A */
-    private TextView teamARunTextView;
+    @BindView(R.id.tv_team_a_score)
+    TextView tvTeamAScore;
 
     /* TextView for displaying total wicket for Team A */
-    private TextView teamAWicketTextView;
+    @BindView(R.id.tv_team_a_wicket)
+    TextView tvTeamAWicket;
 
     /* TextView for displaying total balls for Team A */
-    private TextView teamABallCountTextView;
+    @BindView(R.id.tv_team_a_ball)
+    TextView tvTeamABall;
 
     /* TextView for displaying strike rate for Team A */
-    private TextView teamAStrikeRateTextView;
+    @BindView(R.id.tv_team_a_strike_rate)
+    TextView tvTeamAStrikeRate;
 
     /* TextView for displaying total runs for Team B */
-    private TextView teamBRunTextView;
+    @BindView(R.id.tv_team_b_score)
+    TextView tvTeamBScore;
 
     /* TextView for displaying total wicket for Team B */
-    private TextView teamBWicketTextView;
+    @BindView(R.id.tv_team_b_wicket)
+    TextView tvTeamBWicket;
 
     /* TextView for displaying total balls for Team B */
-    private TextView teamBBallCountTextView;
+    @BindView(R.id.tv_team_b_ball)
+    TextView tvTeamBBall;
 
     /* TextView for displaying strike rate for Team B */
-    private TextView teamBStrikeRateTextView;
+    @BindView(R.id.tv_team_b_strike_rate)
+    TextView tvTeamBStrikeRate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* Find the TextView with their respective IDs */
-        teamARunTextView = (TextView) findViewById(R.id.team_a_score);
-        teamABallCountTextView = (TextView) findViewById(R.id.team_a_ball);
-        teamAWicketTextView = (TextView) findViewById(R.id.team_a_wicket);
-        teamAStrikeRateTextView = (TextView) findViewById(R.id.team_a_strike_rate);
-        teamBRunTextView = (TextView) findViewById(R.id.team_b_score);
-        teamBBallCountTextView = (TextView) findViewById(R.id.team_b_ball);
-        teamBWicketTextView = (TextView) findViewById(R.id.team_b_wicket);
-        teamBStrikeRateTextView = (TextView) findViewById(R.id.team_b_strike_rate);
+        ButterKnife.bind(this);
     }
 
     /**
@@ -190,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
         teamAStrikeRate = (teamARuns * 100.00) / teamABalls;
-        teamAStrikeRateTextView.setText(String.valueOf(df.format(teamAStrikeRate)));
+        tvTeamAStrikeRate.setText(String.valueOf(df.format(teamAStrikeRate)));
     }
 
     /**
@@ -202,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
         teamBStrikeRate = (teamBRuns * 100.00) / teamBBalls;
-        teamBStrikeRateTextView.setText(String.valueOf(df.format(teamBStrikeRate)));
+        tvTeamBStrikeRate.setText(String.valueOf(df.format(teamBStrikeRate)));
     }
 
     /**
@@ -218,15 +221,15 @@ public class MainActivity extends AppCompatActivity {
         teamBOut = 0;
         teamBStrikeRate = 0.0;
         /* Display reset values for Team A */
-        teamARunTextView.setText(String.valueOf(teamARuns));
-        teamABallCountTextView.setText(String.valueOf(teamABalls));
-        teamAWicketTextView.setText(String.valueOf(teamAOut));
-        teamAStrikeRateTextView.setText(String.valueOf(teamAStrikeRate));
+        tvTeamAScore.setText(String.valueOf(teamARuns));
+        tvTeamABall.setText(String.valueOf(teamABalls));
+        tvTeamAWicket.setText(String.valueOf(teamAOut));
+        tvTeamAStrikeRate.setText(String.valueOf(teamAStrikeRate));
         /* Display reset values for Team B */
-        teamBRunTextView.setText(String.valueOf(teamBRuns));
-        teamBBallCountTextView.setText(String.valueOf(teamBBalls));
-        teamBWicketTextView.setText(String.valueOf(teamBOut));
-        teamBStrikeRateTextView.setText(String.valueOf(teamBStrikeRate));
+        tvTeamBScore.setText(String.valueOf(teamBRuns));
+        tvTeamBBall.setText(String.valueOf(teamBBalls));
+        tvTeamBWicket.setText(String.valueOf(teamBOut));
+        tvTeamBStrikeRate.setText(String.valueOf(teamBStrikeRate));
     }
 
     /**
@@ -243,13 +246,13 @@ public class MainActivity extends AppCompatActivity {
         }
         switch (identifier) {
             case 1:
-                teamARunTextView.setText(String.valueOf(score));
+                tvTeamAScore.setText(String.valueOf(score));
                 break;
             case 2:
-                teamAWicketTextView.setText(String.valueOf(score));
+                tvTeamAWicket.setText(String.valueOf(score));
                 break;
             case 3:
-                teamABallCountTextView.setText(String.valueOf(score));
+                tvTeamABall.setText(String.valueOf(score));
                 break;
         }
     }
@@ -268,13 +271,13 @@ public class MainActivity extends AppCompatActivity {
         }
         switch (identifier) {
             case 1:
-                teamBRunTextView.setText(String.valueOf(score));
+                tvTeamBScore.setText(String.valueOf(score));
                 break;
             case 2:
-                teamBWicketTextView.setText(String.valueOf(score));
+                tvTeamBWicket.setText(String.valueOf(score));
                 break;
             case 3:
-                teamBBallCountTextView.setText(String.valueOf(score));
+                tvTeamBBall.setText(String.valueOf(score));
                 break;
         }
     }
