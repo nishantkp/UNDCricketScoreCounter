@@ -72,7 +72,19 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-        mScorePresenter = new ScorePresenter(this);
+        mScorePresenter = new ScorePresenter(this, this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mScorePresenter.restoreState();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mScorePresenter.restoreState();
     }
 
     // Update Team A performance matrix

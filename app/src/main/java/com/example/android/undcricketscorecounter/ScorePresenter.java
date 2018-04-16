@@ -27,6 +27,10 @@
 
 package com.example.android.undcricketscorecounter;
 
+import android.content.Context;
+
+import com.example.android.undcricketscorecounter.model.PreferenceHelper;
+
 import java.text.DecimalFormat;
 
 public class ScorePresenter {
@@ -38,40 +42,52 @@ public class ScorePresenter {
     private static int teamBBall = 0;
     private static int teamBWicket = 0;
     private Score mScore;
+    private static PreferenceHelper preferenceHelper;
 
-    ScorePresenter(Score score) {
+    ScorePresenter(Context context, Score score) {
         mScore = score;
+        preferenceHelper = PreferenceHelper.getInstance(context);
     }
 
     public void updateTeamAScore(int run) {
         teamARun += run;
+        preferenceHelper.writeData("TEAM A RUN", String.valueOf(teamARun));
         mScore.setTeamARun(teamARun);
     }
 
     public void updateTeamABall() {
         teamABall += 1;
+        preferenceHelper.writeData("TEAM A BALL", String.valueOf(teamABall));
+        preferenceHelper.writeData("TEAM A STRIKE RATE",
+                String.valueOf(teamABall > 0 ? calculateStrikeRate(teamARun, teamABall) : 0.0));
         mScore.setTeamAStrikeRate(teamABall > 0 ? calculateStrikeRate(teamARun, teamABall) : 0.0);
         mScore.setTeamABall(teamABall);
     }
 
     public void updateTeamAWicket() {
         teamAWicket += 1;
+        preferenceHelper.writeData("TEAM A WICKET", String.valueOf(teamAWicket));
         mScore.setTeamAWicket(teamAWicket);
     }
 
     public void updateTeamBScore(int run) {
         teamBRun += run;
+        preferenceHelper.writeData("TEAM B RUN", String.valueOf(teamBRun));
         mScore.setTeamBRun(teamBRun);
     }
 
     public void updateTeamBBall() {
         teamBBall += 1;
+        preferenceHelper.writeData("TEAM B BALL", String.valueOf(teamBBall));
+        preferenceHelper.writeData("TEAM B STRIKE RATE",
+                String.valueOf(teamBBall > 0 ? calculateStrikeRate(teamBRun, teamBBall) : 0.0));
         mScore.setTeamBStrikeRate(teamBBall > 0 ? calculateStrikeRate(teamBRun, teamBBall) : 0.0);
         mScore.setTeamBBall(teamBBall);
     }
 
     public void updateTeamBWicket() {
         teamBWicket += 1;
+        preferenceHelper.writeData("TEAM B WICKET", String.valueOf(teamAWicket));
         mScore.setTeamBWicket(teamBWicket);
     }
 
@@ -91,5 +107,18 @@ public class ScorePresenter {
         teamBBall = 0;
         teamBRun = 0;
         teamBWicket = 0;
+        preferenceHelper.clearData();
+    }
+
+    // Restore the score state
+    public void restoreState() {
+        mScore.setTeamARun(Integer.parseInt(preferenceHelper.readData("TEAM A RUN")));
+        mScore.setTeamABall(Integer.parseInt(preferenceHelper.readData("TEAM A BALL")));
+        mScore.setTeamAWicket(Integer.parseInt(preferenceHelper.readData("TEAM A WICKET")));
+        mScore.setTeamAStrikeRate(Double.parseDouble(preferenceHelper.readData("TEAM A STRIKE RATE")));
+        mScore.setTeamBRun(Integer.parseInt(preferenceHelper.readData("TEAM B RUN")));
+        mScore.setTeamBBall(Integer.parseInt(preferenceHelper.readData("TEAM B BALL")));
+        mScore.setTeamBWicket(Integer.parseInt(preferenceHelper.readData("TEAM B WICKET")));
+        mScore.setTeamBStrikeRate(Double.parseDouble(preferenceHelper.readData("TEAM B STRIKE RATE")));
     }
 }
