@@ -29,44 +29,38 @@ package com.example.android.undcricketscorecounter;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity
         implements Score {
 
-    /* TextView for displaying total runs for Team A */
+    /* Team A TextViews */
     @BindView(R.id.tv_team_a_score)
     TextView tvTeamAScore;
 
-    /* TextView for displaying total wicket for Team A */
     @BindView(R.id.tv_team_a_wicket)
     TextView tvTeamAWicket;
 
-    /* TextView for displaying total balls for Team A */
     @BindView(R.id.tv_team_a_ball)
     TextView tvTeamABall;
 
-    /* TextView for displaying strike rate for Team A */
     @BindView(R.id.tv_team_a_strike_rate)
     TextView tvTeamAStrikeRate;
 
-    /* TextView for displaying total runs for Team B */
+    /* Team B TextViews */
     @BindView(R.id.tv_team_b_score)
     TextView tvTeamBScore;
 
-    /* TextView for displaying total wicket for Team B */
     @BindView(R.id.tv_team_b_wicket)
     TextView tvTeamBWicket;
 
-    /* TextView for displaying total balls for Team B */
     @BindView(R.id.tv_team_b_ball)
     TextView tvTeamBBall;
 
-    /* TextView for displaying strike rate for Team B */
     @BindView(R.id.tv_team_b_strike_rate)
     TextView tvTeamBStrikeRate;
 
@@ -82,60 +76,74 @@ public class MainActivity extends AppCompatActivity
     }
 
     // Update Team A performance matrix
-    public void teamAOneRun(View v) {
+    @OnClick(R.id.btn_team_a_one_run)
+    public void BtnTeamAOneRun() {
         mScorePresenter.updateTeamAScore(1);
     }
 
-    public void teamATwoRun(View v) {
+    @OnClick(R.id.btn_team_a_two_run)
+    public void btnTeamATwoRun() {
         mScorePresenter.updateTeamAScore(2);
     }
 
-    public void teamAThreeRun(View v) {
+    @OnClick(R.id.btn_team_a_three_run)
+    public void btnTeamAThreeRun() {
         mScorePresenter.updateTeamAScore(3);
     }
 
-    public void teamAFourRun(View v) {
+    @OnClick(R.id.btn_team_a_four_run)
+    public void btnTeamAFourRun() {
         mScorePresenter.updateTeamAScore(4);
     }
 
-    public void teamASixRun(View v) {
+    @OnClick(R.id.btn_team_a_six_run)
+    public void btnTeamASixRun() {
         mScorePresenter.updateTeamAScore(6);
     }
 
-    public void teamAOut(View v) {
+    @OnClick(R.id.btn_team_a_out)
+    public void btnTeamAOut() {
         mScorePresenter.updateTeamAWicket();
     }
 
-    public void teamABallCount(View v) {
+    @OnClick(R.id.btn_team_a_ball)
+    public void btnTeamABall() {
         mScorePresenter.updateTeamABall();
     }
 
     // Update Team B performance matrix
-    public void teamBOneRun(View v) {
+    @OnClick(R.id.btn_team_b_one_run)
+    public void btnTeamBOneRun() {
         mScorePresenter.updateTeamBScore(1);
     }
 
-    public void teamBTwoRun(View v) {
+    @OnClick(R.id.btn_team_b_two_run)
+    public void btnTeamBTwoRun() {
         mScorePresenter.updateTeamBScore(2);
     }
 
-    public void teamBThreeRun(View v) {
+    @OnClick(R.id.btn_team_b_three_run)
+    public void btnTeamBThreeRun() {
         mScorePresenter.updateTeamBScore(3);
     }
 
-    public void teamBFourRun(View v) {
+    @OnClick(R.id.btn_team_b_four_run)
+    public void btnTeamBFourRun() {
         mScorePresenter.updateTeamBScore(4);
     }
 
-    public void teamBSixRun(View v) {
+    @OnClick(R.id.btn_team_b_six_run)
+    public void btnTeamBSixRun() {
         mScorePresenter.updateTeamBScore(5);
     }
 
-    public void teamBOut(View v) {
+    @OnClick(R.id.btn_team_b_out)
+    public void btnTeamBOut() {
         mScorePresenter.updateTeamBWicket();
     }
 
-    public void teamBBallCount(View v) {
+    @OnClick(R.id.btn_team_b_ball)
+    public void btnTeamBBall() {
         mScorePresenter.updateTeamBBall();
     }
 
@@ -180,7 +188,8 @@ public class MainActivity extends AppCompatActivity
         tvTeamBStrikeRate.setText(String.valueOf(strikeRate));
     }
 
-    public void reset(View view) {
+    @OnClick(R.id.btn_reset)
+    public void btnReset() {
         // Team A
         tvTeamAScore.setText(String.valueOf(0));
         tvTeamABall.setText(String.valueOf(0));
