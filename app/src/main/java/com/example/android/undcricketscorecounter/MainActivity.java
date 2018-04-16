@@ -5,31 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
-    /* Total runs for Team A */
-    int teamARuns = 0;
-    /* Total balls for Team A */
-    int teamABalls = 0;
-    /* Total wicket for Team A */
-    int teamAOut = 0;
-
-    /* Total runs for Team B */
-    int teamBRuns = 0;
-    /* Total balls for Team B */
-    int teamBBalls = 0;
-    /* Total wicket for Team B */
-    int teamBOut = 0;
-
-    /* Average strike rate for Team A */
-    double teamAStrikeRate = 0.0;
-
-    /* Average strike rate for team B */
-    double teamBStrikeRate = 0.0;
+public class MainActivity extends AppCompatActivity
+        implements Score {
 
     /* TextView for displaying total runs for Team A */
     @BindView(R.id.tv_team_a_score)
@@ -63,222 +43,127 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tv_team_b_strike_rate)
     TextView tvTeamBStrikeRate;
 
+    ScorePresenter mScorePresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
+        mScorePresenter = new ScorePresenter(this);
     }
 
-    /**
-     * Increase runs by +1 for Team A
-     */
+    // Update Team A performance matrix
     public void teamAOneRun(View v) {
-        teamARuns += 1;
-        displayForTeamA(teamARuns, 1);
+        mScorePresenter.updateTeamAScore(1);
     }
 
-    /**
-     * Increase runs by +2 for Team A
-     */
     public void teamATwoRun(View v) {
-        teamARuns += 2;
-        displayForTeamA(teamARuns, 1);
+        mScorePresenter.updateTeamAScore(2);
     }
 
-    /**
-     * Increase runs by +3 for Team A
-     */
     public void teamAThreeRun(View v) {
-        teamARuns += 3;
-        displayForTeamA(teamARuns, 1);
+        mScorePresenter.updateTeamAScore(3);
     }
 
-    /**
-     * Increase runs by +4 for Team A
-     */
     public void teamAFourRun(View v) {
-        teamARuns += 4;
-        displayForTeamA(teamARuns, 1);
+        mScorePresenter.updateTeamAScore(4);
     }
 
-    /**
-     * Increase runs by +6 for Team A
-     */
     public void teamASixRun(View v) {
-        teamARuns += 6;
-        displayForTeamA(teamARuns, 1);
+        mScorePresenter.updateTeamAScore(6);
     }
 
-    /**
-     * Increase out by +1 for Team A
-     */
     public void teamAOut(View v) {
-        teamAOut += 1;
-        displayForTeamA(teamAOut, 2);
+        mScorePresenter.updateTeamAWicket();
     }
 
-    /**
-     * Increase balls by +1 for Team A
-     */
     public void teamABallCount(View v) {
-        teamABalls += 1;
-        displayForTeamA(teamABalls, 3);
+        mScorePresenter.updateTeamABall();
     }
 
-
-    /**
-     * Increase runs by +1 for Team B
-     */
+    // Update Team B performance matrix
     public void teamBOneRun(View v) {
-        teamBRuns += 1;
-        displayForTeamB(teamBRuns, 1);
+        mScorePresenter.updateTeamBScore(1);
     }
 
-    /**
-     * Increase runs by +2 for Team B
-     */
     public void teamBTwoRun(View v) {
-        teamBRuns += 2;
-        displayForTeamB(teamBRuns, 1);
+        mScorePresenter.updateTeamBScore(2);
     }
 
-    /**
-     * Increase runs by +3 for Team B
-     */
     public void teamBThreeRun(View v) {
-        teamBRuns += 3;
-        displayForTeamB(teamBRuns, 1);
+        mScorePresenter.updateTeamBScore(3);
     }
 
-    /**
-     * Increase runs by +4 for Team B
-     */
     public void teamBFourRun(View v) {
-        teamBRuns += 4;
-        displayForTeamB(teamBRuns, 1);
+        mScorePresenter.updateTeamBScore(4);
     }
 
-    /**
-     * Increase runs by +6 for Team B
-     */
     public void teamBSixRun(View v) {
-        teamBRuns += 6;
-        displayForTeamB(teamBRuns, 1);
+        mScorePresenter.updateTeamBScore(5);
     }
 
-    /**
-     * Increase out by +1 for Team B
-     */
     public void teamBOut(View v) {
-        teamBOut += 1;
-        displayForTeamB(teamBOut, 2);
+        mScorePresenter.updateTeamBWicket();
     }
 
-    /**
-     * Increase balls by +1 for Team B
-     */
     public void teamBBallCount(View v) {
-        teamBBalls += 1;
-        displayForTeamB(teamBBalls, 3);
+        mScorePresenter.updateTeamBBall();
     }
 
-    /**
-     * Calculate Strike rate for Team A
-     */
-    public void teamAStrikeRate() {
-        // Change decimal format to 2 for displaying
-        // floating data with two decimal points
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        teamAStrikeRate = (teamARuns * 100.00) / teamABalls;
-        tvTeamAStrikeRate.setText(String.valueOf(df.format(teamAStrikeRate)));
+    // Update views
+    @Override
+    public void setTeamARun(int run) {
+        tvTeamAScore.setText(String.valueOf(run));
     }
 
-    /**
-     * Calculate Strike rate for Team B and change decimal format to 2
-     */
-    public void teamBStrikeRate() {
-        // Change decimal format to 2 for displaying
-        // floating data with two decimal points
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
-        teamBStrikeRate = (teamBRuns * 100.00) / teamBBalls;
-        tvTeamBStrikeRate.setText(String.valueOf(df.format(teamBStrikeRate)));
+    @Override
+    public void setTeamABall(int ball) {
+        tvTeamABall.setText(String.valueOf(ball));
     }
 
-    /**
-     * Reset everything
-     */
-    public void reset(View v) {
-        teamARuns = 0;
-        teamABalls = 0;
-        teamAOut = 0;
-        teamAStrikeRate = 0.0;
-        teamBRuns = 0;
-        teamBBalls = 0;
-        teamBOut = 0;
-        teamBStrikeRate = 0.0;
-        /* Display reset values for Team A */
-        tvTeamAScore.setText(String.valueOf(teamARuns));
-        tvTeamABall.setText(String.valueOf(teamABalls));
-        tvTeamAWicket.setText(String.valueOf(teamAOut));
-        tvTeamAStrikeRate.setText(String.valueOf(teamAStrikeRate));
-        /* Display reset values for Team B */
-        tvTeamBScore.setText(String.valueOf(teamBRuns));
-        tvTeamBBall.setText(String.valueOf(teamBBalls));
-        tvTeamBWicket.setText(String.valueOf(teamBOut));
-        tvTeamBStrikeRate.setText(String.valueOf(teamBStrikeRate));
+    @Override
+    public void setTeamAWicket(int wicket) {
+        tvTeamAWicket.setText(String.valueOf(wicket));
     }
 
-    /**
-     * Displays the given score for Team A.
-     *
-     * @param identifier = 1 : update team A runs
-     *                   = 2 : update team A wicket
-     *                   = 3 : update team A balls
-     */
-    public void displayForTeamA(int score, int identifier) {
-        // Whenever number of balls is greater than zero, calculate the strike rate and display it.
-        if (teamABalls > 0) {
-            teamAStrikeRate();
-        }
-        switch (identifier) {
-            case 1:
-                tvTeamAScore.setText(String.valueOf(score));
-                break;
-            case 2:
-                tvTeamAWicket.setText(String.valueOf(score));
-                break;
-            case 3:
-                tvTeamABall.setText(String.valueOf(score));
-                break;
-        }
+    @Override
+    public void setTeamAStrikeRate(double strikeRate) {
+        tvTeamAStrikeRate.setText(String.valueOf(strikeRate));
     }
 
-    /**
-     * Displays the given score for Team B.
-     *
-     * @param identifier = 1 : update team A runs
-     *                   = 2 : update team A wicket
-     *                   = 3 : update team A balls
-     */
-    public void displayForTeamB(int score, int identifier) {
-        // Whenever number of balls is greater than zero, calculate the strike rate and display it.
-        if (teamBBalls > 0) {
-            teamBStrikeRate();
-        }
-        switch (identifier) {
-            case 1:
-                tvTeamBScore.setText(String.valueOf(score));
-                break;
-            case 2:
-                tvTeamBWicket.setText(String.valueOf(score));
-                break;
-            case 3:
-                tvTeamBBall.setText(String.valueOf(score));
-                break;
-        }
+    @Override
+    public void setTeamBRun(int run) {
+        tvTeamBScore.setText(String.valueOf(run));
+    }
+
+    @Override
+    public void setTeamBBall(int ball) {
+        tvTeamBBall.setText(String.valueOf(ball));
+    }
+
+    @Override
+    public void setTeamBWicket(int wicket) {
+        tvTeamBWicket.setText(String.valueOf(wicket));
+    }
+
+    @Override
+    public void setTeamBStrikeRate(double strikeRate) {
+        tvTeamBStrikeRate.setText(String.valueOf(strikeRate));
+    }
+
+    public void reset(View view) {
+        // Team A
+        tvTeamAScore.setText(String.valueOf(0));
+        tvTeamABall.setText(String.valueOf(0));
+        tvTeamAWicket.setText(String.valueOf(0));
+        tvTeamAStrikeRate.setText(String.valueOf(0.0));
+        //Team B
+        tvTeamBScore.setText(String.valueOf(0));
+        tvTeamBBall.setText(String.valueOf(0));
+        tvTeamBWicket.setText(String.valueOf(0));
+        tvTeamBStrikeRate.setText(String.valueOf(0.0));
+        mScorePresenter.resetGame();
     }
 }
