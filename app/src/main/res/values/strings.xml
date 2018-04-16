@@ -27,4 +27,14 @@
 
 <resources>
     <string name="app_name">Cricket Score</string>
+    <string name="team_a_label">Team A</string>
+    <string name="ball_label">ball</string>
+    <string name="score_one">+1</string>
+    <string name="score_two">+2</string>
+    <string name="score_three">+3</string>
+    <string name="score_four">+4</string>
+    <string name="score_six">+6</string>
+    <string name="wicket_label">wicket</string>
+    <string name="team_b_label">Team B</string>
+    <string name="reset_label">reset</string>
 </resources>

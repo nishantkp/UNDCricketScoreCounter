@@ -51,7 +51,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:fontFamily="sans-serif-black"
-                android:text="Team A"
+                android:text="@string/team_a_label"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -85,7 +85,7 @@
                 <Button
                     android:id="@+id/btn_team_a_ball"
                     style="@style/homeScreenBallCountButton"
-                    android:text="ball"
+                    android:text="@string/ball_label"
                     android:textAllCaps="true" />
 
                 <TextView
@@ -104,12 +104,12 @@
                 <Button
                     android:id="@+id/btn_team_a_one_run"
                     style="@style/homeScreenScoreButton"
-                    android:text="+1" />
+                    android:text="@string/score_one" />
 
                 <Button
                     android:id="@+id/btn_team_a_two_run"
                     style="@style/homeScreenScoreButton"
-                    android:text="+2" />
+                    android:text="@string/score_two" />
             </LinearLayout>
 
             <LinearLayout
@@ -121,25 +121,24 @@
                 <Button
                     android:id="@+id/btn_team_a_three_run"
                     style="@style/homeScreenScoreButton"
-                    android:text="+3" />
+                    android:text="@string/score_three" />
 
                 <Button
                     android:id="@+id/btn_team_a_four_run"
                     style="@style/homeScreenScoreButton"
-                    android:text="+4" />
+                    android:text="@string/score_four" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btn_team_a_six_run"
                 style="@style/homeScreenScoreButton"
-                android:layout_alignParentRight="true"
                 android:layout_gravity="center"
-                android:text="+6" />
+                android:text="@string/score_six" />
 
             <Button
                 android:id="@+id/btn_team_a_out"
                 style="@style/homeScreenWicketButton"
-                android:text="wicket"
+                android:text="@string/wicket_label"
                 android:textAllCaps="false" />
         </LinearLayout>
 
@@ -162,7 +161,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:fontFamily="sans-serif-black"
-                android:text="Team B"
+                android:text="@string/team_b_label"
                 android:textSize="16sp" />
 
             <LinearLayout
@@ -201,7 +200,7 @@
                 <Button
                     android:id="@+id/btn_team_b_ball"
                     style="@style/homeScreenBallCountButton"
-                    android:text="ball"
+                    android:text="@string/ball_label"
                     android:textAllCaps="true" />
             </LinearLayout>
 
@@ -215,12 +214,12 @@
                 <Button
                     android:id="@+id/btn_team_b_one_run"
                     style="@style/homeScreenScoreButton"
-                    android:text="+1" />
+                    android:text="@string/score_one" />
 
                 <Button
                     android:id="@+id/btn_team_b_two_run"
                     style="@style/homeScreenScoreButton"
-                    android:text="+2" />
+                    android:text="@string/score_two" />
             </LinearLayout>
 
             <LinearLayout
@@ -232,24 +231,24 @@
                 <Button
                     android:id="@+id/btn_team_b_three_run"
                     style="@style/homeScreenScoreButton"
-                    android:text="+3" />
+                    android:text="@string/score_three" />
 
                 <Button
                     android:id="@+id/btn_team_b_four_run"
                     style="@style/homeScreenScoreButton"
-                    android:text="+4" />
+                    android:text="@string/score_four" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btn_team_b_six_run"
                 style="@style/homeScreenScoreButton"
                 android:layout_gravity="center"
-                android:text="+6" />
+                android:text="@string/score_six" />
 
             <Button
                 android:id="@+id/btn_team_b_out"
                 style="@style/homeScreenWicketButton"
-                android:text="wicket"
+                android:text="@string/wicket_label"
                 android:textAllCaps="false" />
         </LinearLayout>
     </LinearLayout>
@@ -259,6 +258,6 @@
         style="@style/homeScreenResetButton"
         android:minHeight="0dp"
         android:minWidth="0dp"
-        android:text="reset"
+        android:text="@string/reset_label"
         android:textAllCaps="false" />
 </LinearLayout>
