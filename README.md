@@ -12,6 +12,10 @@ The goal is to create an Score Keeper app which gives a user the ability to keep
 - Variable scope
 - Finding views by ID
 - Updating views
+- ButterKnife
+
+### Structure
+MVP - Model View Presentation
 
 
 ### UX Design
