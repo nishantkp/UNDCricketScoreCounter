@@ -4,7 +4,7 @@ Project as a part of nano-degree at [Udacity](https://www.udacity.com/)
 
 ### Project Overview
 
-The goal is to create an Score Keeper app which gives a user the ability to keep track of the score of two different teams playing a game of your choice.
+The goal is to create an Score Keeper app which gives a user the ability to keep track of the scoreContract of two different teams playing a game of your choice.
 
 
 #### Helpers :smiley:

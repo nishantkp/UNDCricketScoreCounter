@@ -27,7 +27,7 @@
 
 package com.example.android.undcricketscorecounter;
 
-interface Score {
+interface ScoreContract {
     void setTeamARun(int run);
 
     void setTeamABall(int ball);

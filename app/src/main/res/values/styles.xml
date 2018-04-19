@@ -35,7 +35,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- Style for score button for each team -->
+    <!-- Style for scoreContract button for each team -->
     <style name="homeScreenScoreButton">
         <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">48dp</item>
