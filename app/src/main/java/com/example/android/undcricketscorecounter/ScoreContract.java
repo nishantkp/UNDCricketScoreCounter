@@ -28,19 +28,21 @@
 package com.example.android.undcricketscorecounter;
 
 interface ScoreContract {
-    void setTeamARun(int run);
+    interface view {
+        void setTeamARun(int run);
 
-    void setTeamABall(int ball);
+        void setTeamABall(int ball);
 
-    void setTeamAWicket(int wicket);
+        void setTeamAWicket(int wicket);
 
-    void setTeamAStrikeRate(double strikeRate);
+        void setTeamAStrikeRate(double strikeRate);
 
-    void setTeamBRun(int run);
+        void setTeamBRun(int run);
 
-    void setTeamBBall(int ball);
+        void setTeamBBall(int ball);
 
-    void setTeamBWicket(int wicket);
+        void setTeamBWicket(int wicket);
 
-    void setTeamBStrikeRate(double strikeRate);
+        void setTeamBStrikeRate(double strikeRate);
+    }
 }

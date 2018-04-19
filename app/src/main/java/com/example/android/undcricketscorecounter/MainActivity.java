@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity
-        implements ScoreContract {
+        implements ScoreContract.view {
 
     /* Team A TextViews */
     @BindView(R.id.tv_team_a_score)

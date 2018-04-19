@@ -41,10 +41,10 @@ public class ScorePresenter {
     private static int teamBRun = 0;
     private static int teamBBall = 0;
     private static int teamBWicket = 0;
-    private ScoreContract mScore;
+    private ScoreContract.view mScore;
     private static PreferenceHelper preferenceHelper;
 
-    ScorePresenter(Context context, ScoreContract scoreContract) {
+    ScorePresenter(Context context, ScoreContract.view scoreContract) {
         mScore = scoreContract;
         preferenceHelper = PreferenceHelper.getInstance(context);
     }
