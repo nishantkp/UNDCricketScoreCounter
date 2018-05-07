@@ -12,14 +12,13 @@ The goal is to create an Score Keeper app which gives a user the ability to keep
 - Variable scope
 - Finding views by ID
 - Updating views
-- ButterKnife
 
 ### Structure
-MVP - Model View Presentation
+MVP + DataBinding
 
 
 ### UX Design
-<img src="https://user-images.githubusercontent.com/32653955/31924049-a5201c44-b84c-11e7-909c-79a7bee409a1.png" width="275" height="475"> <img src="https://user-images.githubusercontent.com/32653955/31924067-b8537aea-b84c-11e7-8152-4c24c8547f64.png" width="275" height="475">
+<img src="https://user-images.githubusercontent.com/32653955/31924049-a5201c44-b84c-11e7-909c-79a7bee409a1.png" width="275"> <img src="https://user-images.githubusercontent.com/32653955/31924067-b8537aea-b84c-11e7-8152-4c24c8547f64.png" width="275">
 
 ## PROJECT LICENSE
 ```
