@@ -27,8 +27,10 @@
 
 package com.example.android.undcricketscorecounter;
 
-interface ScoreContract {
-    interface view {
+import com.example.android.undcricketscorecounter.base.MvpView;
+
+public interface ScoreContract {
+    interface view extends MvpView {
         void setTeamARun(int run);
 
         void setTeamABall(int ball);
@@ -44,5 +46,29 @@ interface ScoreContract {
         void setTeamBWicket(int wicket);
 
         void setTeamBStrikeRate(double strikeRate);
+
+        void resetGame();
+    }
+
+    interface Presenter {
+        void calculateTeamARun(int run);
+
+        void calculateTeamABall();
+
+        void calculateTeamAWicket();
+
+        void calculateTeamAStrikeRate();
+
+        void calculateTeamBRun(int run);
+
+        void calculateTeamBBall();
+
+        void calculateTeamBWicket();
+
+        void calculateTeamBStrikeRate();
+
+        void resetGame();
+
+        double calculateStrikeRate(int runs, int balls);
     }
 }

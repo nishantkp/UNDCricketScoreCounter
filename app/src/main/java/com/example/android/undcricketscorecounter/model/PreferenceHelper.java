@@ -30,7 +30,7 @@ package com.example.android.undcricketscorecounter.model;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class PreferenceHelper {
+class PreferenceHelper {
     private static PreferenceHelper sPreferenceHelper;
     private static SharedPreferences sSharedPreferences;
     private static SharedPreferences.Editor sEditor;
@@ -44,15 +44,15 @@ public class PreferenceHelper {
         return sPreferenceHelper;
     }
 
-    public void writeData(String key, String value) {
+    protected void writeData(String key, String value) {
         sEditor.putString(key, value).commit();
     }
 
-    public String readData(String key) {
+    protected String readData(String key) {
         return sSharedPreferences.getString(key, "0");
     }
 
-    public void clearData() {
+    protected void clearData() {
         sEditor.clear().commit();
     }
 }

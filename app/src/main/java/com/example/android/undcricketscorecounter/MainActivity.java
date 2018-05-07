@@ -27,191 +27,91 @@
 
 package com.example.android.undcricketscorecounter;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import com.example.android.undcricketscorecounter.databinding.ActivityMainBinding;
+import com.example.android.undcricketscorecounter.model.DataManager;
 
 public class MainActivity extends AppCompatActivity
         implements ScoreContract.view {
-
-    /* Team A TextViews */
-    @BindView(R.id.tv_team_a_score)
-    TextView tvTeamAScore;
-
-    @BindView(R.id.tv_team_a_wicket)
-    TextView tvTeamAWicket;
-
-    @BindView(R.id.tv_team_a_ball)
-    TextView tvTeamABall;
-
-    @BindView(R.id.tv_team_a_strike_rate)
-    TextView tvTeamAStrikeRate;
-
-    /* Team B TextViews */
-    @BindView(R.id.tv_team_b_score)
-    TextView tvTeamBScore;
-
-    @BindView(R.id.tv_team_b_wicket)
-    TextView tvTeamBWicket;
-
-    @BindView(R.id.tv_team_b_ball)
-    TextView tvTeamBBall;
-
-    @BindView(R.id.tv_team_b_strike_rate)
-    TextView tvTeamBStrikeRate;
-
-    ScorePresenter mScorePresenter;
+    private ActivityMainBinding binding;
+    private ScorePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        ButterKnife.bind(this);
-        mScorePresenter = new ScorePresenter(this, this);
+        DataManager dataManager = DataManager.getInstance(this);
+        presenter = new ScorePresenter(dataManager);
+        presenter.attachView(this);
+        binding.setPresenter(presenter);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mScorePresenter.restoreState();
+        presenter.restoreState();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mScorePresenter.restoreState();
-    }
-
-    // Update Team A performance matrix
-    @OnClick(R.id.btn_team_a_one_run)
-    public void BtnTeamAOneRun() {
-        mScorePresenter.updateTeamAScore(1);
-    }
-
-    @OnClick(R.id.btn_team_a_two_run)
-    public void btnTeamATwoRun() {
-        mScorePresenter.updateTeamAScore(2);
-    }
-
-    @OnClick(R.id.btn_team_a_three_run)
-    public void btnTeamAThreeRun() {
-        mScorePresenter.updateTeamAScore(3);
-    }
-
-    @OnClick(R.id.btn_team_a_four_run)
-    public void btnTeamAFourRun() {
-        mScorePresenter.updateTeamAScore(4);
-    }
-
-    @OnClick(R.id.btn_team_a_six_run)
-    public void btnTeamASixRun() {
-        mScorePresenter.updateTeamAScore(6);
-    }
-
-    @OnClick(R.id.btn_team_a_out)
-    public void btnTeamAOut() {
-        mScorePresenter.updateTeamAWicket();
-    }
-
-    @OnClick(R.id.btn_team_a_ball)
-    public void btnTeamABall() {
-        mScorePresenter.updateTeamABall();
-    }
-
-    // Update Team B performance matrix
-    @OnClick(R.id.btn_team_b_one_run)
-    public void btnTeamBOneRun() {
-        mScorePresenter.updateTeamBScore(1);
-    }
-
-    @OnClick(R.id.btn_team_b_two_run)
-    public void btnTeamBTwoRun() {
-        mScorePresenter.updateTeamBScore(2);
-    }
-
-    @OnClick(R.id.btn_team_b_three_run)
-    public void btnTeamBThreeRun() {
-        mScorePresenter.updateTeamBScore(3);
-    }
-
-    @OnClick(R.id.btn_team_b_four_run)
-    public void btnTeamBFourRun() {
-        mScorePresenter.updateTeamBScore(4);
-    }
-
-    @OnClick(R.id.btn_team_b_six_run)
-    public void btnTeamBSixRun() {
-        mScorePresenter.updateTeamBScore(5);
-    }
-
-    @OnClick(R.id.btn_team_b_out)
-    public void btnTeamBOut() {
-        mScorePresenter.updateTeamBWicket();
-    }
-
-    @OnClick(R.id.btn_team_b_ball)
-    public void btnTeamBBall() {
-        mScorePresenter.updateTeamBBall();
+        presenter.restoreState();
     }
 
     // Update views
     @Override
     public void setTeamARun(int run) {
-        tvTeamAScore.setText(String.valueOf(run));
+        binding.tvTeamAScore.setText(String.valueOf(run));
     }
 
     @Override
     public void setTeamABall(int ball) {
-        tvTeamABall.setText(String.valueOf(ball));
+        binding.tvTeamABall.setText(String.valueOf(ball));
     }
 
     @Override
     public void setTeamAWicket(int wicket) {
-        tvTeamAWicket.setText(String.valueOf(wicket));
+        binding.tvTeamAWicket.setText(String.valueOf(wicket));
     }
 
     @Override
     public void setTeamAStrikeRate(double strikeRate) {
-        tvTeamAStrikeRate.setText(String.valueOf(strikeRate));
+        binding.tvTeamAStrikeRate.setText(String.valueOf(strikeRate));
     }
 
     @Override
     public void setTeamBRun(int run) {
-        tvTeamBScore.setText(String.valueOf(run));
+        binding.tvTeamBScore.setText(String.valueOf(run));
     }
 
     @Override
     public void setTeamBBall(int ball) {
-        tvTeamBBall.setText(String.valueOf(ball));
+        binding.tvTeamBBall.setText(String.valueOf(ball));
     }
 
     @Override
     public void setTeamBWicket(int wicket) {
-        tvTeamBWicket.setText(String.valueOf(wicket));
+        binding.tvTeamBWicket.setText(String.valueOf(wicket));
     }
 
     @Override
     public void setTeamBStrikeRate(double strikeRate) {
-        tvTeamBStrikeRate.setText(String.valueOf(strikeRate));
+        binding.tvTeamBStrikeRate.setText(String.valueOf(strikeRate));
     }
 
-    @OnClick(R.id.btn_reset)
-    public void btnReset() {
-        // Team A
-        tvTeamAScore.setText(String.valueOf(0));
-        tvTeamABall.setText(String.valueOf(0));
-        tvTeamAWicket.setText(String.valueOf(0));
-        tvTeamAStrikeRate.setText(String.valueOf(0.0));
-        //Team B
-        tvTeamBScore.setText(String.valueOf(0));
-        tvTeamBBall.setText(String.valueOf(0));
-        tvTeamBWicket.setText(String.valueOf(0));
-        tvTeamBStrikeRate.setText(String.valueOf(0.0));
-        mScorePresenter.resetGame();
+    @Override
+    public void resetGame() {
+        binding.tvTeamABall.setText("0");
+        binding.tvTeamAScore.setText("0");
+        binding.tvTeamAWicket.setText("0");
+        binding.tvTeamAStrikeRate.setText("0.0");
+        binding.tvTeamBBall.setText("0");
+        binding.tvTeamBWicket.setText("0");
+        binding.tvTeamBScore.setText("0");
+        binding.tvTeamBStrikeRate.setText("0.0");
     }
 }
