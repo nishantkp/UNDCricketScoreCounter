@@ -29,6 +29,7 @@ package com.example.android.undcricketscorecounter;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.android.undcricketscorecounter.databinding.ActivityMainBinding;
@@ -37,6 +38,7 @@ import com.example.android.undcricketscorecounter.model.DataManager;
 public class MainActivity extends AppCompatActivity
         implements ScoreContract.view {
     private ActivityMainBinding binding;
+    private ScorePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +46,7 @@ public class MainActivity extends AppCompatActivity
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setScoreMatrix(new ScoreMatrix());
 
-        // DataManager dataManager = DataManager.getInstance(this);
-        ScorePresenter presenter = new ScorePresenter(new ScoreMatrix());
+        presenter = new ScorePresenter(new ScoreMatrix(), DataManager.getInstance(this));
         presenter.attachView(this);
         binding.setPresenter(presenter);
     }
@@ -53,13 +54,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        //    presenter.restoreState();
+        presenter.restoreState();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        //    presenter.restoreState();
+        presenter.restoreState();
     }
 
     @Override

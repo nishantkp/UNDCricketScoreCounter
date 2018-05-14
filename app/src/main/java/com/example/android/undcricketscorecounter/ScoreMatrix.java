@@ -29,15 +29,15 @@ public class ScoreMatrix extends BaseObservable {
         notifyPropertyChanged(_all);
     }
 
-    public void setTeamABall() {
-        teamABall += 1;
+    public void setTeamABall(int ball) {
+        teamABall += ball;
         teamASr = teamABall > 0 ? calculateStrikeRate(teamARun, teamABall) : 0.0;
         teamAScoreButtonStatus = true;
         notifyPropertyChanged(_all);
     }
 
-    public void setTeamAWicket() {
-        teamAWicket += 1;
+    public void setTeamAWicket(int wicket) {
+        teamAWicket += wicket;
         notifyPropertyChanged(_all);
     }
 
@@ -47,15 +47,15 @@ public class ScoreMatrix extends BaseObservable {
         notifyPropertyChanged(_all);
     }
 
-    public void setTeamBBall() {
-        teamBBall += 1;
+    public void setTeamBBall(int ball) {
+        teamBBall += ball;
         teamBSr = teamBBall > 0 ? calculateStrikeRate(teamBRun, teamBBall) : 0.0;
         teamBScoreButtonStatus = true;
         notifyPropertyChanged(_all);
     }
 
-    public void setTeamBWicket() {
-        teamBWicket += 1;
+    public void setTeamBWicket(int wicket) {
+        teamBWicket += wicket;
         notifyPropertyChanged(_all);
     }
 

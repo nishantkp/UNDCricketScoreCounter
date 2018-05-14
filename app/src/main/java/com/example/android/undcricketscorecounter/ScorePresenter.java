@@ -30,12 +30,11 @@ package com.example.android.undcricketscorecounter;
 import com.example.android.undcricketscorecounter.base.BasePresenter;
 import com.example.android.undcricketscorecounter.model.DataManager;
 
-import java.text.DecimalFormat;
-
 public class ScorePresenter extends BasePresenter<ScoreContract.view>
         implements ScoreContract.Presenter {
 
     private ScoreMatrix matrix;
+    private DataManager manager;
 
     @Override
     public void attachView(ScoreContract.view view) {
@@ -47,8 +46,9 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
         super.detachView();
     }
 
-    ScorePresenter(ScoreMatrix matrix) {
+    ScorePresenter(ScoreMatrix matrix, DataManager manager) {
         this.matrix = matrix;
+        this.manager = manager;
     }
 
     // Reset the game performance matrix
@@ -56,66 +56,60 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
     public void resetGame() {
         matrix.resetGame();
         getView().viewPerformanceMatrix(matrix);
+        manager.clearPref();
     }
 
     // Restore the score state
-//    public void restoreState() {
-//        teamARun = Integer.parseInt(manager.loadDataFromPref("TEAM A RUN"));
-//        getView().setTeamARun(teamARun);
-//
-//        teamABall = Integer.parseInt(manager.loadDataFromPref("TEAM A BALL"));
-//        getView().setTeamABall(teamABall);
-//
-//        teamAWicket = Integer.parseInt(manager.loadDataFromPref("TEAM A WICKET"));
-//        getView().setTeamAWicket(teamAWicket);
-//
-//        getView().setTeamAStrikeRate(Double.parseDouble(manager.loadDataFromPref("TEAM A STRIKE RATE")));
-//
-//        teamBRun = Integer.parseInt(manager.loadDataFromPref("TEAM B RUN"));
-//        getView().setTeamBRun(teamBRun);
-//
-//        teamBBall = Integer.parseInt(manager.loadDataFromPref("TEAM B BALL"));
-//        getView().setTeamBBall(teamBBall);
-//
-//        teamBWicket = Integer.parseInt(manager.loadDataFromPref("TEAM B WICKET"));
-//        getView().setTeamBWicket(teamBWicket);
-//
-//        getView().setTeamBStrikeRate(Double.parseDouble(manager.loadDataFromPref("TEAM B STRIKE RATE")));
-//    }
+    public void restoreState() {
+        matrix.setTeamARun(Integer.parseInt(manager.loadDataFromPref("TEAM A RUN")));
+        matrix.setTeamABall(Integer.parseInt(manager.loadDataFromPref("TEAM A BALL")));
+        matrix.setTeamAWicket(Integer.parseInt(manager.loadDataFromPref("TEAM A WICKET")));
+
+        matrix.setTeamBRun(Integer.parseInt(manager.loadDataFromPref("TEAM B RUN")));
+        matrix.setTeamBBall(Integer.parseInt(manager.loadDataFromPref("TEAM B BALL")));
+        matrix.setTeamBWicket(Integer.parseInt(manager.loadDataFromPref("TEAM B WICKET")));
+        getView().viewPerformanceMatrix(matrix);
+    }
 
     @Override
     public void calculateTeamARun(int run) {
         matrix.setTeamARun(run);
         getView().viewPerformanceMatrix(matrix);
+        manager.storeDataToPref("TEAM A RUN", String.valueOf(matrix.getTeamARun()));
     }
 
     @Override
     public void calculateTeamABall() {
-        matrix.setTeamABall();
+        matrix.setTeamABall(1);
         getView().viewPerformanceMatrix(matrix);
+        manager.storeDataToPref("TEAM A BALL", String.valueOf(matrix.getTeamABall()));
     }
 
     @Override
     public void calculateTeamAWicket() {
-        matrix.setTeamAWicket();
+        matrix.setTeamAWicket(1);
         getView().viewPerformanceMatrix(matrix);
+        manager.storeDataToPref("TEAM A WICKET", String.valueOf(matrix.getTeamAWicket()));
     }
 
     @Override
     public void calculateTeamBRun(int run) {
         matrix.setTeamBRun(run);
         getView().viewPerformanceMatrix(matrix);
+        manager.storeDataToPref("TEAM B RUN", String.valueOf(matrix.getTeamBRun()));
     }
 
     @Override
     public void calculateTeamBBall() {
-        matrix.setTeamBBall();
+        matrix.setTeamBBall(1);
         getView().viewPerformanceMatrix(matrix);
+        manager.storeDataToPref("TEAM B BALL", String.valueOf(matrix.getTeamBBall()));
     }
 
     @Override
     public void calculateTeamBWicket() {
-        matrix.setTeamBWicket();
+        matrix.setTeamBWicket(1);
         getView().viewPerformanceMatrix(matrix);
+        manager.storeDataToPref("TEAM B WICKET", String.valueOf(matrix.getTeamBWicket()));
     }
 }
