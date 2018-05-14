@@ -37,15 +37,15 @@ import com.example.android.undcricketscorecounter.model.DataManager;
 public class MainActivity extends AppCompatActivity
         implements ScoreContract.view {
     private ActivityMainBinding binding;
-    private ScorePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setScoreMatrix(new ScoreMatrix());
 
-        DataManager dataManager = DataManager.getInstance(this);
-        presenter = new ScorePresenter(dataManager);
+        // DataManager dataManager = DataManager.getInstance(this);
+        ScorePresenter presenter = new ScorePresenter(new ScoreMatrix());
         presenter.attachView(this);
         binding.setPresenter(presenter);
     }
@@ -53,101 +53,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-        presenter.restoreState();
+        //    presenter.restoreState();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.restoreState();
-    }
-
-    // Update views
-    @Override
-    public void setTeamARun(int run) {
-        binding.tvTeamAScore.setText(String.valueOf(run));
+        //    presenter.restoreState();
     }
 
     @Override
-    public void setTeamABall(int ball) {
-        binding.tvTeamABall.setText(String.valueOf(ball));
-    }
-
-    @Override
-    public void setTeamAWicket(int wicket) {
-        binding.tvTeamAWicket.setText(String.valueOf(wicket));
-    }
-
-    @Override
-    public void setTeamAStrikeRate(double strikeRate) {
-        binding.tvTeamAStrikeRate.setText(String.valueOf(strikeRate));
-    }
-
-    @Override
-    public void disableTeamARunButtons() {
-        binding.btnTeamAOneRun.setEnabled(false);
-        binding.btnTeamATwoRun.setEnabled(false);
-        binding.btnTeamAThreeRun.setEnabled(false);
-        binding.btnTeamAFourRun.setEnabled(false);
-        binding.btnTeamASixRun.setEnabled(false);
-    }
-
-    @Override
-    public void enableTeamARunButtons() {
-        binding.btnTeamAOneRun.setEnabled(true);
-        binding.btnTeamATwoRun.setEnabled(true);
-        binding.btnTeamAThreeRun.setEnabled(true);
-        binding.btnTeamAFourRun.setEnabled(true);
-        binding.btnTeamASixRun.setEnabled(true);
-    }
-
-    @Override
-    public void setTeamBRun(int run) {
-        binding.tvTeamBScore.setText(String.valueOf(run));
-    }
-
-    @Override
-    public void setTeamBBall(int ball) {
-        binding.tvTeamBBall.setText(String.valueOf(ball));
-    }
-
-    @Override
-    public void setTeamBWicket(int wicket) {
-        binding.tvTeamBWicket.setText(String.valueOf(wicket));
-    }
-
-    @Override
-    public void setTeamBStrikeRate(double strikeRate) {
-        binding.tvTeamBStrikeRate.setText(String.valueOf(strikeRate));
-    }
-
-    @Override
-    public void disableTeamBRunButtons() {
-        binding.btnTeamBOneRun.setEnabled(false);
-        binding.btnTeamBTwoRun.setEnabled(false);
-        binding.btnTeamBThreeRun.setEnabled(false);
-        binding.btnTeamBFourRun.setEnabled(false);
-        binding.btnTeamBSixRun.setEnabled(false);
-    }
-
-    @Override
-    public void enableTeamBBunButtons() {
-        binding.btnTeamBOneRun.setEnabled(true);
-        binding.btnTeamBTwoRun.setEnabled(true);
-        binding.btnTeamBThreeRun.setEnabled(true);
-        binding.btnTeamBFourRun.setEnabled(true);
-        binding.btnTeamBSixRun.setEnabled(true);
-    }
-
-    @Override
-    public void resetGame() {
-        binding.tvTeamABall.setText("0");
-        binding.tvTeamAScore.setText("0");
-        binding.tvTeamAWicket.setText("0");
-        binding.tvTeamAStrikeRate.setText("0.0");
-        binding.tvTeamBBall.setText("0");
-        binding.tvTeamBWicket.setText("0");
-        binding.tvTeamBScore.setText("0");
-        binding.tvTeamBStrikeRate.setText("0.0");
+    public void viewPerformanceMatrix(ScoreMatrix matrix) {
+        binding.setScoreMatrix(matrix);
     }
 }

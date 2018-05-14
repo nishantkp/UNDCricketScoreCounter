@@ -31,31 +31,7 @@ import com.example.android.undcricketscorecounter.base.MvpView;
 
 public interface ScoreContract {
     interface view extends MvpView {
-        void setTeamARun(int run);
-
-        void setTeamABall(int ball);
-
-        void setTeamAWicket(int wicket);
-
-        void setTeamAStrikeRate(double strikeRate);
-
-        void disableTeamARunButtons();
-
-        void enableTeamARunButtons();
-
-        void setTeamBRun(int run);
-
-        void setTeamBBall(int ball);
-
-        void setTeamBWicket(int wicket);
-
-        void setTeamBStrikeRate(double strikeRate);
-
-        void disableTeamBRunButtons();
-
-        void enableTeamBBunButtons();
-
-        void resetGame();
+        void viewPerformanceMatrix(ScoreMatrix matrix);
     }
 
     interface Presenter {
@@ -65,18 +41,12 @@ public interface ScoreContract {
 
         void calculateTeamAWicket();
 
-        void calculateTeamAStrikeRate();
-
         void calculateTeamBRun(int run);
 
         void calculateTeamBBall();
 
         void calculateTeamBWicket();
 
-        void calculateTeamBStrikeRate();
-
         void resetGame();
-
-        double calculateStrikeRate(int runs, int balls);
     }
 }
