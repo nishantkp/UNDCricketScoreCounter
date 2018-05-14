@@ -31,11 +31,11 @@
 
         <variable
             name="presenter"
-            type="com.example.android.undcricketscorecounter.ScoreContract.Presenter" />
+            type="com.example.android.undcricketscorecounter.ui.ScorePresenter" />
 
         <variable
             name="scoreMatrix"
-            type="com.example.android.undcricketscorecounter.ScoreMatrix" />
+            type="com.example.android.undcricketscorecounter.ui.ScoreMatrix" />
     </data>
 
     <LinearLayout
@@ -43,8 +43,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:orientation="vertical"
-        android:paddingTop="8dp"
-        tools:context="com.example.android.undcricketscorecounter.MainActivity">
+        android:paddingTop="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"

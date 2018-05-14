@@ -24,14 +24,13 @@
  *
  * Last modified 4/15/18 8:39 PM
  */
-
-package com.example.android.undcricketscorecounter;
+package com.example.android.undcricketscorecounter.ui;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.android.undcricketscorecounter.R;
 import com.example.android.undcricketscorecounter.databinding.ActivityMainBinding;
 import com.example.android.undcricketscorecounter.model.DataManager;
 

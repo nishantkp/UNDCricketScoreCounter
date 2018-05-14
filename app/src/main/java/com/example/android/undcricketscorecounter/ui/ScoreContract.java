@@ -25,7 +25,7 @@
  * Last modified 4/15/18 8:59 PM
  */
 
-package com.example.android.undcricketscorecounter;
+package com.example.android.undcricketscorecounter.ui;
 
 import com.example.android.undcricketscorecounter.base.MvpView;
 

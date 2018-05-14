@@ -25,7 +25,7 @@
  * Last modified 4/15/18 8:41 PM
  */
 
-package com.example.android.undcricketscorecounter;
+package com.example.android.undcricketscorecounter.ui;
 
 import com.example.android.undcricketscorecounter.base.BasePresenter;
 import com.example.android.undcricketscorecounter.model.DataManager;

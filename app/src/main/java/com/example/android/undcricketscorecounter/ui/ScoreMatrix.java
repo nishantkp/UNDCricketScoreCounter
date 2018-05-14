@@ -1,4 +1,4 @@
-package com.example.android.undcricketscorecounter;
+package com.example.android.undcricketscorecounter.ui;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
