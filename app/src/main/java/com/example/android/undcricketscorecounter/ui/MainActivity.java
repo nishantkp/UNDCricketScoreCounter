@@ -26,9 +26,13 @@
  */
 package com.example.android.undcricketscorecounter.ui;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.android.undcricketscorecounter.R;
 import com.example.android.undcricketscorecounter.databinding.ActivityMainBinding;
@@ -65,5 +69,32 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void viewPerformanceMatrix(ScoreMatrix matrix) {
         binding.setScoreMatrix(matrix);
+    }
+
+    /**
+     * Display alert dialog for saving data when user presses back button
+     */
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this, R.style.alertDialog)
+                        .setTitle(R.string.save_changes)
+                        .setMessage(getString(R.string.save_dialog_message))
+                        .setPositiveButton(getString(R.string.save_dialog_positive_title)
+                                , new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Toast.makeText(MainActivity.this, "save data!", Toast.LENGTH_SHORT).show();
+                                    }
+                                })
+                        .setNegativeButton(getString(R.string.save_dialog_negative_button)
+                                , new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                        finish();
+                                    }
+                                });
+        builder.show();
     }
 }

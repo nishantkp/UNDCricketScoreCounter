@@ -37,4 +37,8 @@
     <string name="wicket_label">wicket</string>
     <string name="team_b_label">Team B</string>
     <string name="reset_label">reset</string>
+    <string name="save_changes">Save existing game?</string>
+    <string name="save_dialog_message">Discard changes will result in lost of all performance matrix!</string>
+    <string name="save_dialog_positive_title">SAVE</string>
+    <string name="save_dialog_negative_button">Discard</string>
 </resources>

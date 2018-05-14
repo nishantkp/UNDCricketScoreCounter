@@ -129,4 +129,12 @@
         <item name="android:textSize">32sp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <!-- Alert dialog theme when user presses back button from main activity -->
+    <style name="alertDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/alert_dialog_background</item>
+        <item name="android:colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">#212121</item>
+        <item name="android:textColorPrimary">#757575</item>
+    </style>
 </resources>
