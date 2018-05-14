@@ -84,6 +84,24 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    public void disableTeamARunButtons() {
+        binding.btnTeamAOneRun.setEnabled(false);
+        binding.btnTeamATwoRun.setEnabled(false);
+        binding.btnTeamAThreeRun.setEnabled(false);
+        binding.btnTeamAFourRun.setEnabled(false);
+        binding.btnTeamASixRun.setEnabled(false);
+    }
+
+    @Override
+    public void enableTeamARunButtons() {
+        binding.btnTeamAOneRun.setEnabled(true);
+        binding.btnTeamATwoRun.setEnabled(true);
+        binding.btnTeamAThreeRun.setEnabled(true);
+        binding.btnTeamAFourRun.setEnabled(true);
+        binding.btnTeamASixRun.setEnabled(true);
+    }
+
+    @Override
     public void setTeamBRun(int run) {
         binding.tvTeamBScore.setText(String.valueOf(run));
     }
@@ -101,6 +119,24 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void setTeamBStrikeRate(double strikeRate) {
         binding.tvTeamBStrikeRate.setText(String.valueOf(strikeRate));
+    }
+
+    @Override
+    public void disableTeamBRunButtons() {
+        binding.btnTeamBOneRun.setEnabled(false);
+        binding.btnTeamBTwoRun.setEnabled(false);
+        binding.btnTeamBThreeRun.setEnabled(false);
+        binding.btnTeamBFourRun.setEnabled(false);
+        binding.btnTeamBSixRun.setEnabled(false);
+    }
+
+    @Override
+    public void enableTeamBBunButtons() {
+        binding.btnTeamBOneRun.setEnabled(true);
+        binding.btnTeamBTwoRun.setEnabled(true);
+        binding.btnTeamBThreeRun.setEnabled(true);
+        binding.btnTeamBFourRun.setEnabled(true);
+        binding.btnTeamBSixRun.setEnabled(true);
     }
 
     @Override

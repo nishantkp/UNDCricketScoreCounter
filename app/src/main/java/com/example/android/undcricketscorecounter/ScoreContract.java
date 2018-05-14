@@ -39,6 +39,10 @@ public interface ScoreContract {
 
         void setTeamAStrikeRate(double strikeRate);
 
+        void disableTeamARunButtons();
+
+        void enableTeamARunButtons();
+
         void setTeamBRun(int run);
 
         void setTeamBBall(int ball);
@@ -46,6 +50,10 @@ public interface ScoreContract {
         void setTeamBWicket(int wicket);
 
         void setTeamBStrikeRate(double strikeRate);
+
+        void disableTeamBRunButtons();
+
+        void enableTeamBBunButtons();
 
         void resetGame();
     }

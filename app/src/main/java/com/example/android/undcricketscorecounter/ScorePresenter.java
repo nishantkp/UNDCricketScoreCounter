@@ -110,6 +110,7 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
         teamARun += run;
         manager.storeDataToPref("TEAM A RUN", String.valueOf(teamARun));
         getView().setTeamARun(teamARun);
+        getView().disableTeamARunButtons();
     }
 
     @Override
@@ -120,6 +121,7 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
         manager.storeDataToPref("TEAM A STRIKE RATE",
                 String.valueOf(teamABall > 0 ? this.calculateStrikeRate(teamARun, teamABall) : 0.0));
         this.calculateTeamAStrikeRate();
+        getView().enableTeamARunButtons();
     }
 
     @Override
@@ -139,6 +141,7 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
         teamBRun += run;
         manager.storeDataToPref("TEAM B RUN", String.valueOf(teamBRun));
         getView().setTeamBRun(teamBRun);
+        getView().disableTeamBRunButtons();
     }
 
     @Override
@@ -149,6 +152,7 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
         manager.storeDataToPref("TEAM B STRIKE RATE",
                 String.valueOf(teamBBall > 0 ? this.calculateStrikeRate(teamBRun, teamBBall) : 0.0));
         this.calculateTeamBStrikeRate();
+        getView().enableTeamBBunButtons();
     }
 
     @Override
