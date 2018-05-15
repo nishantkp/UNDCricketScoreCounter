@@ -46,4 +46,14 @@ public class DataManager {
     public void clearPref() {
         sPreferenceHelper.clearData();
     }
+
+    /**
+     * Use for finding data is available in preference or not
+     *
+     * @param key preference kay
+     * @return true or false depending on preference availability
+     */
+    public boolean isDataAvailableInPref(String key) {
+        return sPreferenceHelper.isDataAvailable(key);
+    }
 }

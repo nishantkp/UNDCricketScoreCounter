@@ -55,4 +55,8 @@ class PreferenceHelper {
     protected void clearData() {
         sEditor.clear().commit();
     }
+
+    protected boolean isDataAvailable(String key) {
+        return sSharedPreferences.contains(key);
+    }
 }

@@ -55,12 +55,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        presenter.restoreState();
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         presenter.restoreState();
@@ -69,6 +63,35 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void viewPerformanceMatrix(ScoreMatrix matrix) {
         binding.setScoreMatrix(matrix);
+    }
+
+    /**
+     * Load saved game matrix
+     *
+     * @param matrix performance matrix
+     */
+    @Override
+    public void loadSavedData(final ScoreMatrix matrix) {
+        AlertDialog.Builder builder =
+                new AlertDialog.Builder(this, R.style.alertDialog)
+                        .setTitle(R.string.load_dialog_title)
+                        .setPositiveButton(R.string.load_dialog_positive_button
+                                , new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        binding.setScoreMatrix(matrix);
+                                    }
+                                })
+                        .setNegativeButton(R.string.load_dialog_negative_button
+                                , new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        presenter.resetGame();
+                                        dialog.dismiss();
+                                    }
+                                })
+                        .setCancelable(false);
+        builder.show();
     }
 
     /**
@@ -84,6 +107,7 @@ public class MainActivity extends AppCompatActivity
                                 , new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
+                                        presenter.saveState();
                                         Toast.makeText(MainActivity.this, "save data!", Toast.LENGTH_SHORT).show();
                                     }
                                 })

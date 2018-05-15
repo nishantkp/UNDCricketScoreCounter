@@ -32,6 +32,8 @@ import com.example.android.undcricketscorecounter.base.MvpView;
 public interface ScoreContract {
     interface view extends MvpView {
         void viewPerformanceMatrix(ScoreMatrix matrix);
+
+        void loadSavedData(ScoreMatrix matrix);
     }
 
     interface Presenter {
@@ -48,5 +50,7 @@ public interface ScoreContract {
         void calculateTeamBWicket();
 
         void resetGame();
+
+        void saveState();
     }
 }
