@@ -26,7 +26,7 @@ public class DataManager {
      * @param key   data key
      * @param value data
      */
-    public void storeDataToPref(String key, String value) {
+    public void storeDataToPref(String key, int value) {
         sPreferenceHelper.writeData(key, value);
     }
 
@@ -36,7 +36,7 @@ public class DataManager {
      * @param key data key
      * @return data
      */
-    public String loadDataFromPref(String key) {
+    public int loadDataFromPref(String key) {
         return sPreferenceHelper.readData(key);
     }
 

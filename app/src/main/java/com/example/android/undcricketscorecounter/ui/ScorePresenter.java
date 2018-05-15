@@ -61,12 +61,12 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
 
     @Override
     public void saveState() {
-        manager.storeDataToPref("TEAM A RUN", String.valueOf(matrix.getTeamARun()));
-        manager.storeDataToPref("TEAM A BALL", String.valueOf(matrix.getTeamABall()));
-        manager.storeDataToPref("TEAM A WICKET", String.valueOf(matrix.getTeamAWicket()));
-        manager.storeDataToPref("TEAM B RUN", String.valueOf(matrix.getTeamBRun()));
-        manager.storeDataToPref("TEAM B BALL", String.valueOf(matrix.getTeamBBall()));
-        manager.storeDataToPref("TEAM B WICKET", String.valueOf(matrix.getTeamBWicket()));
+        manager.storeDataToPref("TEAM A RUN", matrix.getTeamARun());
+        manager.storeDataToPref("TEAM A BALL", matrix.getTeamABall());
+        manager.storeDataToPref("TEAM A WICKET", matrix.getTeamAWicket());
+        manager.storeDataToPref("TEAM B RUN", matrix.getTeamBRun());
+        manager.storeDataToPref("TEAM B BALL", matrix.getTeamBBall());
+        manager.storeDataToPref("TEAM B WICKET", matrix.getTeamBWicket());
     }
 
     // Restore the score state
@@ -75,13 +75,13 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
         if (!manager.isDataAvailableInPref("TEAM A RUN")) {
             return;
         }
-        matrix.setTeamARun(Integer.parseInt(manager.loadDataFromPref("TEAM A RUN")));
-        matrix.setTeamABall(Integer.parseInt(manager.loadDataFromPref("TEAM A BALL")));
-        matrix.setTeamAWicket(Integer.parseInt(manager.loadDataFromPref("TEAM A WICKET")));
+        matrix.setTeamARun(manager.loadDataFromPref("TEAM A RUN"));
+        matrix.setTeamABall(manager.loadDataFromPref("TEAM A BALL"));
+        matrix.setTeamAWicket(manager.loadDataFromPref("TEAM A WICKET"));
 
-        matrix.setTeamBRun(Integer.parseInt(manager.loadDataFromPref("TEAM B RUN")));
-        matrix.setTeamBBall(Integer.parseInt(manager.loadDataFromPref("TEAM B BALL")));
-        matrix.setTeamBWicket(Integer.parseInt(manager.loadDataFromPref("TEAM B WICKET")));
+        matrix.setTeamBRun(manager.loadDataFromPref("TEAM B RUN"));
+        matrix.setTeamBBall(manager.loadDataFromPref("TEAM B BALL"));
+        matrix.setTeamBWicket(manager.loadDataFromPref("TEAM B WICKET"));
         getView().loadSavedData(matrix);
     }
 

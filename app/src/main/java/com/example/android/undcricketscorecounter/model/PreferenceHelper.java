@@ -44,12 +44,12 @@ class PreferenceHelper {
         return sPreferenceHelper;
     }
 
-    protected void writeData(String key, String value) {
-        sEditor.putString(key, value).commit();
+    protected void writeData(String key, int value) {
+        sEditor.putInt(key, value).commit();
     }
 
-    protected String readData(String key) {
-        return sSharedPreferences.getString(key, "0");
+    protected int readData(String key) {
+        return sSharedPreferences.getInt(key, 0);
     }
 
     protected void clearData() {
