@@ -11,27 +11,33 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Team A">
+            android:hint="@string/team_a_label">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/tv_team_a_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="text"
                 android:maxLength="4"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textSize="16sp" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Team B">
+            android:hint="@string/team_b_label">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/tv_team_b_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="text"
                 android:maxLength="4"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:textSize="16sp" />
         </android.support.design.widget.TextInputLayout>
     </LinearLayout>
 </layout>
