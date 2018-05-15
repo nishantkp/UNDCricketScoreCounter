@@ -31,11 +31,11 @@
 
         <variable
             name="presenter"
-            type="com.example.android.undcricketscorecounter.ui.ScorePresenter" />
+            type="com.example.android.undcricketscorecounter.ui.score.ScorePresenter" />
 
         <variable
             name="scoreMatrix"
-            type="com.example.android.undcricketscorecounter.ui.ScoreMatrix" />
+            type="com.example.android.undcricketscorecounter.ui.model.ScoreMatrix" />
     </data>
 
     <LinearLayout

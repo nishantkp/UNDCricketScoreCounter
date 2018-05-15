@@ -25,9 +25,10 @@
  * Last modified 4/15/18 8:59 PM
  */
 
-package com.example.android.undcricketscorecounter.ui;
+package com.example.android.undcricketscorecounter.ui.score;
 
 import com.example.android.undcricketscorecounter.base.MvpView;
+import com.example.android.undcricketscorecounter.ui.model.ScoreMatrix;
 
 public interface ScoreContract {
     interface view extends MvpView {

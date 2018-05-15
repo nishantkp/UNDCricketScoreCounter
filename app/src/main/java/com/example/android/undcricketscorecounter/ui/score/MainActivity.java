@@ -24,18 +24,18 @@
  *
  * Last modified 4/15/18 8:39 PM
  */
-package com.example.android.undcricketscorecounter.ui;
+package com.example.android.undcricketscorecounter.ui.score;
 
 import android.content.DialogInterface;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.example.android.undcricketscorecounter.R;
 import com.example.android.undcricketscorecounter.databinding.ActivityMainBinding;
 import com.example.android.undcricketscorecounter.model.DataManager;
+import com.example.android.undcricketscorecounter.ui.model.ScoreMatrix;
 
 public class MainActivity extends AppCompatActivity
         implements ScoreContract.view {

@@ -25,10 +25,11 @@
  * Last modified 4/15/18 8:41 PM
  */
 
-package com.example.android.undcricketscorecounter.ui;
+package com.example.android.undcricketscorecounter.ui.score;
 
 import com.example.android.undcricketscorecounter.base.BasePresenter;
 import com.example.android.undcricketscorecounter.model.DataManager;
+import com.example.android.undcricketscorecounter.ui.model.ScoreMatrix;
 
 public class ScorePresenter extends BasePresenter<ScoreContract.view>
         implements ScoreContract.Presenter {
