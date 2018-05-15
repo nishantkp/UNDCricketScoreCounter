@@ -89,41 +89,35 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
     public void calculateTeamARun(int run) {
         matrix.setTeamARun(run);
         getView().viewPerformanceMatrix(matrix);
-        //manager.storeDataToPref("TEAM A RUN", String.valueOf(matrix.getTeamARun()));
     }
 
     @Override
     public void calculateTeamABall() {
         matrix.setTeamABall(1);
         getView().viewPerformanceMatrix(matrix);
-        //manager.storeDataToPref("TEAM A BALL", String.valueOf(matrix.getTeamABall()));
     }
 
     @Override
     public void calculateTeamAWicket() {
         matrix.setTeamAWicket(1);
         getView().viewPerformanceMatrix(matrix);
-        //manager.storeDataToPref("TEAM A WICKET", String.valueOf(matrix.getTeamAWicket()));
     }
 
     @Override
     public void calculateTeamBRun(int run) {
         matrix.setTeamBRun(run);
         getView().viewPerformanceMatrix(matrix);
-        //manager.storeDataToPref("TEAM B RUN", String.valueOf(matrix.getTeamBRun()));
     }
 
     @Override
     public void calculateTeamBBall() {
         matrix.setTeamBBall(1);
         getView().viewPerformanceMatrix(matrix);
-        //manager.storeDataToPref("TEAM B BALL", String.valueOf(matrix.getTeamBBall()));
     }
 
     @Override
     public void calculateTeamBWicket() {
         matrix.setTeamBWicket(1);
         getView().viewPerformanceMatrix(matrix);
-        //manager.storeDataToPref("TEAM B WICKET", String.valueOf(matrix.getTeamBWicket()));
     }
 }

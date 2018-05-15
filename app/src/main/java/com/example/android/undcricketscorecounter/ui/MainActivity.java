@@ -27,7 +27,6 @@
 package com.example.android.undcricketscorecounter.ui;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -108,7 +107,6 @@ public class MainActivity extends AppCompatActivity
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         presenter.saveState();
-                                        Toast.makeText(MainActivity.this, "save data!", Toast.LENGTH_SHORT).show();
                                     }
                                 })
                         .setNegativeButton(getString(R.string.save_dialog_negative_button)
