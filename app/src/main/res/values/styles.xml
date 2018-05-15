@@ -137,4 +137,10 @@
         <item name="android:textColor">#212121</item>
         <item name="android:textColorPrimary">#757575</item>
     </style>
+
+    <!-- Team Selection activity theme -->
+    <style name="TeamSelectionTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/teamSelectionColorAccent</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
 </resources>

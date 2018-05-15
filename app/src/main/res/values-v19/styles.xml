@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Team Selection activity theme -->
+    <style name="TeamSelectionTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/teamSelectionColorAccent</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+</resources>
