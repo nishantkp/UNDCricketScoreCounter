@@ -29,23 +29,38 @@ public class TeamSelectionActivity extends AppCompatActivity
         presenter.attachView(this);
     }
 
+    /**
+     * Check for the stored preference value to show alert dialog
+     */
     @Override
     protected void onResume() {
         super.onResume();
         presenter.restoreState();
     }
 
+    /**
+     * When team names are valid start {@link MainActivity}
+     */
     @Override
     public void onSuccess() {
         startActivity(new Intent(TeamSelectionActivity.this, MainActivity.class));
     }
 
+    /**
+     * Display error message in case of invalid team names
+     *
+     * @param error error message
+     */
     @Override
     public void onError(String error) {
         Toast.makeText(this, error, Toast.LENGTH_SHORT).show();
         //Snackbar.make(binding.coordinatorTeam, error, Snackbar.LENGTH_SHORT).show();
     }
 
+    /**
+     * If data is present in preferences, show alert dialog to start new game
+     * OR load an existing one
+     */
     @Override
     public void onRestoreGame() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.alertDialog)
@@ -71,6 +86,11 @@ public class TeamSelectionActivity extends AppCompatActivity
         builder.show();
     }
 
+    /**
+     * onCLickHandler for start button
+     *
+     * @param view view
+     */
     public void startGame(View view) {
         presenter.checkTeamDetails(binding.included.tvTeamAName.getText().toString().trim(),
                 binding.included.tvTeamBName.getText().toString().trim());
