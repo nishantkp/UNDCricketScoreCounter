@@ -30,6 +30,7 @@ package com.example.android.undcricketscorecounter.ui.score;
 import com.example.android.undcricketscorecounter.base.BasePresenter;
 import com.example.android.undcricketscorecounter.model.DataManager;
 import com.example.android.undcricketscorecounter.ui.model.ScoreMatrix;
+import com.example.android.undcricketscorecounter.utils.IConstants;
 
 public class ScorePresenter extends BasePresenter<ScoreContract.view>
         implements ScoreContract.Presenter {
@@ -62,27 +63,27 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
 
     @Override
     public void saveState() {
-        manager.storeDataToPref("TEAM A RUN", matrix.getTeamARun());
-        manager.storeDataToPref("TEAM A BALL", matrix.getTeamABall());
-        manager.storeDataToPref("TEAM A WICKET", matrix.getTeamAWicket());
-        manager.storeDataToPref("TEAM B RUN", matrix.getTeamBRun());
-        manager.storeDataToPref("TEAM B BALL", matrix.getTeamBBall());
-        manager.storeDataToPref("TEAM B WICKET", matrix.getTeamBWicket());
+        manager.storeDataToPref(IConstants.PreferenceKey.TEAM_A_RUN, matrix.getTeamARun());
+        manager.storeDataToPref(IConstants.PreferenceKey.TEAM_A_BALL, matrix.getTeamABall());
+        manager.storeDataToPref(IConstants.PreferenceKey.TEAM_A_WICKET, matrix.getTeamAWicket());
+        manager.storeDataToPref(IConstants.PreferenceKey.TEAM_B_RUN, matrix.getTeamBRun());
+        manager.storeDataToPref(IConstants.PreferenceKey.TEAM_B_BALL, matrix.getTeamBBall());
+        manager.storeDataToPref(IConstants.PreferenceKey.TEAM_B_WICKET, matrix.getTeamBWicket());
     }
 
     // Restore the score state
     public void restoreState() {
         // If data is not available in preference
-        if (!manager.isDataAvailableInPref("TEAM A RUN")) {
+        if (!manager.isDataAvailableInPref(IConstants.PreferenceKey.TEAM_A_RUN)) {
             return;
         }
-        matrix.setTeamARun(manager.loadDataFromPref("TEAM A RUN"));
-        matrix.setTeamABall(manager.loadDataFromPref("TEAM A BALL"));
-        matrix.setTeamAWicket(manager.loadDataFromPref("TEAM A WICKET"));
+        matrix.setTeamARun(manager.loadDataFromPref(IConstants.PreferenceKey.TEAM_A_RUN));
+        matrix.setTeamABall(manager.loadDataFromPref(IConstants.PreferenceKey.TEAM_A_BALL));
+        matrix.setTeamAWicket(manager.loadDataFromPref(IConstants.PreferenceKey.TEAM_A_WICKET));
 
-        matrix.setTeamBRun(manager.loadDataFromPref("TEAM B RUN"));
-        matrix.setTeamBBall(manager.loadDataFromPref("TEAM B BALL"));
-        matrix.setTeamBWicket(manager.loadDataFromPref("TEAM B WICKET"));
+        matrix.setTeamBRun(manager.loadDataFromPref(IConstants.PreferenceKey.TEAM_B_RUN));
+        matrix.setTeamBBall(manager.loadDataFromPref(IConstants.PreferenceKey.TEAM_B_BALL));
+        matrix.setTeamBWicket(manager.loadDataFromPref(IConstants.PreferenceKey.TEAM_B_WICKET));
         getView().loadSavedData(matrix);
     }
 

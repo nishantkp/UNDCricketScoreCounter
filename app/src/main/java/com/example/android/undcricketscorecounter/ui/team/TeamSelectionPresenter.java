@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.example.android.undcricketscorecounter.base.BasePresenter;
 import com.example.android.undcricketscorecounter.model.DataManager;
+import com.example.android.undcricketscorecounter.utils.IConstants;
 
 public class TeamSelectionPresenter extends BasePresenter<TeamSelectionView.View>
         implements TeamSelectionView.Presenter {
@@ -28,8 +29,8 @@ public class TeamSelectionPresenter extends BasePresenter<TeamSelectionView.View
     @Override
     public void checkTeamDetails(String name1, String name2) {
         if (!TextUtils.isEmpty(name1) && !TextUtils.isEmpty(name2)) {
-            manager.storeStringToPref("TEAM_A_NAME", name1);
-            manager.storeStringToPref("TEAM_B_NAME", name2);
+            manager.storeStringToPref(IConstants.PreferenceKey.TEAM_A_NAME, name1);
+            manager.storeStringToPref(IConstants.PreferenceKey.TEAM_B_NAME, name2);
             getView().onSuccess();
         } else {
             getView().onError("Provide valid team name!");
