@@ -34,15 +34,15 @@ public class TeamSelectionPresenter extends BasePresenter<TeamSelectionView.View
      */
     @Override
     public void checkTeamDetails(String name1, String name2) {
-        if (!TextUtils.isEmpty(name1) && !TextUtils.isEmpty(name2)) {
-            // Clear preference data before starting new game
-            manager.clearPref();
-            manager.storeStringToPref(IConstants.PreferenceKey.TEAM_A_NAME, name1);
-            manager.storeStringToPref(IConstants.PreferenceKey.TEAM_B_NAME, name2);
-            getView().onSuccess();
-        } else {
+        if (TextUtils.isEmpty(name1) || TextUtils.isEmpty(name2) || name1.equals(name2)) {
             getView().onError("Provide valid team name!");
+            return;
         }
+        // Clear preference data before starting new game
+        manager.clearPref();
+        manager.storeStringToPref(IConstants.PreferenceKey.TEAM_A_NAME, name1);
+        manager.storeStringToPref(IConstants.PreferenceKey.TEAM_B_NAME, name2);
+        getView().onSuccess();
     }
 
     /**
