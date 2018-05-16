@@ -52,6 +52,14 @@ class PreferenceHelper {
         return sSharedPreferences.getInt(key, 0);
     }
 
+    protected void writeStringData(String key, String value) {
+        sEditor.putString(key, value).commit();
+    }
+
+    protected String readStringData(String key) {
+        return sSharedPreferences.getString(key, "");
+    }
+
     protected void clearData() {
         sEditor.clear().commit();
     }

@@ -41,6 +41,26 @@ public class DataManager {
     }
 
     /**
+     * Store string into preference
+     *
+     * @param key   key
+     * @param value data
+     */
+    public void storeStringToPref(String key, String value) {
+        sPreferenceHelper.writeStringData(key, value);
+    }
+
+    /**
+     * Load string from preference
+     *
+     * @param key key
+     * @return data
+     */
+    public String loadStringFromPref(String key) {
+        return sPreferenceHelper.readStringData(key);
+    }
+
+    /**
      * Use for clearing all the preferences
      */
     public void clearPref() {
