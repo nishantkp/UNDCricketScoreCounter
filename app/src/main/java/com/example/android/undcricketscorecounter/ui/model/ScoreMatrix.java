@@ -10,6 +10,7 @@ import static com.example.android.undcricketscorecounter.BR.*;
 public class ScoreMatrix extends BaseObservable {
 
     /* Team A performance matrix */
+    private String teamAName;
     private int teamARun = 0;
     private int teamABall = 0;
     private int teamAWicket = 0;
@@ -17,11 +18,17 @@ public class ScoreMatrix extends BaseObservable {
     private boolean teamAScoreButtonStatus = true;
 
     /* Team B performance matrix */
+    private String teamBName;
     private int teamBRun = 0;
     private int teamBBall = 0;
     private int teamBWicket = 0;
     private double teamBSr = 0.0;
     private boolean teamBScoreButtonStatus = true;
+
+    public void setTeamAName(String name) {
+        teamAName = name;
+        notifyPropertyChanged(_all);
+    }
 
     public void setTeamARun(int run) {
         teamARun += run;
@@ -41,6 +48,11 @@ public class ScoreMatrix extends BaseObservable {
         notifyPropertyChanged(_all);
     }
 
+    public void setTeamBName(String name) {
+        teamBName = name;
+        notifyPropertyChanged(_all);
+    }
+
     public void setTeamBRun(int run) {
         teamBRun += run;
         teamBScoreButtonStatus = false;
@@ -57,6 +69,11 @@ public class ScoreMatrix extends BaseObservable {
     public void setTeamBWicket(int wicket) {
         teamBWicket += wicket;
         notifyPropertyChanged(_all);
+    }
+
+    @Bindable
+    public String getTeamAName() {
+        return teamAName;
     }
 
     @Bindable
@@ -82,6 +99,11 @@ public class ScoreMatrix extends BaseObservable {
     @Bindable
     public boolean isTeamAScoreButtonStatus() {
         return teamAScoreButtonStatus;
+    }
+
+    @Bindable
+    public String getTeamBName() {
+        return teamBName;
     }
 
     @Bindable

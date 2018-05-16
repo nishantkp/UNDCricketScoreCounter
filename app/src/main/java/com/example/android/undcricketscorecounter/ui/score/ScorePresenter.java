@@ -73,8 +73,12 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
 
     // Restore the score state
     public void restoreState() {
+        matrix.setTeamAName(manager.loadStringFromPref(IConstants.PreferenceKey.TEAM_A_NAME));
+        matrix.setTeamBName(manager.loadStringFromPref(IConstants.PreferenceKey.TEAM_B_NAME));
+
         // If data is not available in preference
         if (!manager.isDataAvailableInPref(IConstants.PreferenceKey.TEAM_A_RUN)) {
+            getView().loadSavedData(matrix);
             return;
         }
         matrix.setTeamARun(manager.loadDataFromPref(IConstants.PreferenceKey.TEAM_A_RUN));
