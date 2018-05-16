@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         presenter.saveState();
+                                        finish();
                                     }
                                 })
                         .setNegativeButton(getString(R.string.save_dialog_negative_button)
