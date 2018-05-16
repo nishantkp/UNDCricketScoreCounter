@@ -1,6 +1,5 @@
 package com.example.android.undcricketscorecounter.ui.team;
 
-import android.provider.ContactsContract;
 import android.text.TextUtils;
 
 import com.example.android.undcricketscorecounter.base.BasePresenter;
@@ -34,6 +33,13 @@ public class TeamSelectionPresenter extends BasePresenter<TeamSelectionView.View
             getView().onSuccess();
         } else {
             getView().onError("Provide valid team name!");
+        }
+    }
+
+    @Override
+    public void restoreState() {
+        if (manager.isDataAvailableInPref(IConstants.PreferenceKey.TEAM_A_RUN)) {
+            getView().onRestoreGame();
         }
     }
 }

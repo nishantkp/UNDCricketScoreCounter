@@ -7,9 +7,13 @@ public interface TeamSelectionView {
         void onSuccess();
 
         void onError(String error);
+
+        void onRestoreGame();
     }
 
     interface Presenter {
         void checkTeamDetails(String name1, String name2);
+
+        void restoreState();
     }
 }
