@@ -71,26 +71,7 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     public void loadSavedData(final ScoreMatrix matrix) {
-        AlertDialog.Builder builder =
-                new AlertDialog.Builder(this, R.style.alertDialog)
-                        .setTitle(R.string.load_dialog_title)
-                        .setPositiveButton(R.string.load_dialog_positive_button
-                                , new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        binding.setScoreMatrix(matrix);
-                                    }
-                                })
-                        .setNegativeButton(R.string.load_dialog_negative_button
-                                , new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        presenter.resetGame();
-                                        dialog.dismiss();
-                                    }
-                                })
-                        .setCancelable(false);
-        builder.show();
+        binding.setScoreMatrix(matrix);
     }
 
     /**
