@@ -30,11 +30,15 @@ package com.example.android.undcricketscorecounter.ui.score;
 import com.example.android.undcricketscorecounter.base.MvpView;
 import com.example.android.undcricketscorecounter.ui.model.ScoreMatrix;
 
+import java.util.List;
+
 public interface ScoreContract {
     interface view extends MvpView {
         void viewPerformanceMatrix(ScoreMatrix matrix);
 
         void loadSavedData(ScoreMatrix matrix);
+
+        void updateBallView(List<String> ballList);
     }
 
     interface Presenter {

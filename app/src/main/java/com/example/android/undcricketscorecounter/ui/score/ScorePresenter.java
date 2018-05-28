@@ -32,11 +32,16 @@ import com.example.android.undcricketscorecounter.model.DataManager;
 import com.example.android.undcricketscorecounter.ui.model.ScoreMatrix;
 import com.example.android.undcricketscorecounter.utils.IConstants;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class ScorePresenter extends BasePresenter<ScoreContract.view>
         implements ScoreContract.Presenter {
 
     private ScoreMatrix matrix;
     private DataManager manager;
+    private static List<String> ballList = new LinkedList<>();
+    private int totalBall = 0;
 
     @Override
     public void attachView(ScoreContract.view view) {
@@ -59,6 +64,8 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
         matrix.resetGame();
         getView().viewPerformanceMatrix(matrix);
         manager.clearPref();
+        ballList.clear();
+        getView().updateBallView(ballList);
     }
 
     @Override
@@ -94,11 +101,20 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
     @Override
     public void calculateTeamARun(int run) {
         matrix.setTeamARun(run);
+        ballList.remove(totalBall);
+        ballList.add(totalBall, String.valueOf(run));
+        getView().updateBallView(ballList);
         getView().viewPerformanceMatrix(matrix);
     }
 
     @Override
     public void calculateTeamABall() {
+        if (ballList.size() > 5) {
+            ballList.clear();
+            totalBall = 0;
+        }
+        ballList.add(totalBall, "0");
+        getView().updateBallView(ballList);
         matrix.setTeamABall(1);
         getView().viewPerformanceMatrix(matrix);
     }
@@ -106,6 +122,9 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
     @Override
     public void calculateTeamAWicket() {
         matrix.setTeamAWicket(1);
+        ballList.remove(totalBall);
+        ballList.add(totalBall, "W");
+        getView().updateBallView(ballList);
         getView().viewPerformanceMatrix(matrix);
     }
 

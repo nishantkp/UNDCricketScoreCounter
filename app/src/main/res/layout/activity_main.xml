@@ -301,5 +301,11 @@
             android:onClick="@{()->presenter.resetGame()}"
             android:text="@string/reset_label"
             android:textAllCaps="false" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_ball_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
     </LinearLayout>
 </layout>

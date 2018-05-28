@@ -31,16 +31,23 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import com.example.android.undcricketscorecounter.R;
 import com.example.android.undcricketscorecounter.databinding.ActivityMainBinding;
 import com.example.android.undcricketscorecounter.model.DataManager;
+import com.example.android.undcricketscorecounter.ui.adapter.BallDetailAdapter;
 import com.example.android.undcricketscorecounter.ui.model.ScoreMatrix;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements ScoreContract.view {
     private ActivityMainBinding binding;
     private ScorePresenter presenter;
+    private BallDetailAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,13 @@ public class MainActivity extends AppCompatActivity
         presenter = new ScorePresenter(new ScoreMatrix(), DataManager.getInstance(this));
         presenter.attachView(this);
         binding.setPresenter(presenter);
+
+        binding.rvBallDetail.setHasFixedSize(true);
+        adapter = new BallDetailAdapter(null);
+        RecyclerView.LayoutManager layoutManager =
+                new LinearLayoutManager(this, LinearLayout.HORIZONTAL, true);
+        binding.rvBallDetail.setLayoutManager(layoutManager);
+        binding.rvBallDetail.setAdapter(adapter);
     }
 
     @Override
@@ -72,6 +86,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void loadSavedData(final ScoreMatrix matrix) {
         binding.setScoreMatrix(matrix);
+    }
+
+    /**
+     * Implement this method to update ball view
+     *
+     * @param ballList detail ball list
+     */
+    @Override
+    public void updateBallView(List<String> ballList) {
+        adapter.swapData(ballList);
     }
 
     /**
