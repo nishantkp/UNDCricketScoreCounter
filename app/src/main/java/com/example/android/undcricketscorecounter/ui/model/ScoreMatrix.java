@@ -48,6 +48,10 @@ public class ScoreMatrix extends BaseObservable {
         notifyPropertyChanged(_all);
     }
 
+    public boolean isTeamAAllOut() {
+        return teamAWicket == 10;
+    }
+
     public void setTeamBName(String name) {
         teamBName = name;
         notifyPropertyChanged(_all);
@@ -69,6 +73,10 @@ public class ScoreMatrix extends BaseObservable {
     public void setTeamBWicket(int wicket) {
         teamBWicket += wicket;
         notifyPropertyChanged(_all);
+    }
+
+    public boolean isTeamBAllOut() {
+        return teamBWicket == 10;
     }
 
     @Bindable
@@ -98,7 +106,7 @@ public class ScoreMatrix extends BaseObservable {
 
     @Bindable
     public boolean isTeamAScoreButtonStatus() {
-        return teamAScoreButtonStatus;
+        return teamAScoreButtonStatus && !isTeamAAllOut();
     }
 
     @Bindable
@@ -128,7 +136,7 @@ public class ScoreMatrix extends BaseObservable {
 
     @Bindable
     public boolean isTeamBScoreButtonStatus() {
-        return teamBScoreButtonStatus;
+        return teamBScoreButtonStatus && !isTeamBAllOut();
     }
 
     private double calculateStrikeRate(int runs, int balls) {
