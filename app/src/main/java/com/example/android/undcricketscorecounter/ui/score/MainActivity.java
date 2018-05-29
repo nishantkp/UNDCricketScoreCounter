@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity
         presenter.attachView(this);
         binding.setPresenter(presenter);
 
-        binding.rvBallDetail.setHasFixedSize(true);
+        binding.overDetail.rvOverDetail.setHasFixedSize(true);
         adapter = new BallDetailAdapter(null);
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager(this, LinearLayout.HORIZONTAL, true);
-        binding.rvBallDetail.setLayoutManager(layoutManager);
-        binding.rvBallDetail.setAdapter(adapter);
+        binding.overDetail.rvOverDetail.setLayoutManager(layoutManager);
+        binding.overDetail.rvOverDetail.setAdapter(adapter);
     }
 
     @Override
