@@ -293,15 +293,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_reset"
-            style="@style/homeScreenResetButton"
-            android:minHeight="0dp"
-            android:minWidth="0dp"
-            android:onClick="@{()->presenter.resetGame()}"
-            android:text="@string/reset_label"
-            android:textAllCaps="false" />
-
         <include
             android:id="@+id/over_detail"
             layout="@layout/over_detail_view"
