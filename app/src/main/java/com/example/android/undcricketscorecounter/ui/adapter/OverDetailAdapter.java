@@ -11,6 +11,9 @@ import com.example.android.undcricketscorecounter.databinding.OverDetailListItem
 
 import java.util.List;
 
+/**
+ * Adapter to display balls in over in horizontal list on dashboard
+ */
 public class OverDetailAdapter
         extends RecyclerView.Adapter<OverDetailAdapter.OverDetailViewHolder> {
     private List<String> mBallList;
@@ -46,13 +49,19 @@ public class OverDetailAdapter
         return mBallList == null ? 0 : mBallList.size();
     }
 
-    // Update the RecyclerView data set
+    /**
+     * Call this method to update RecyclerView data set
+     *
+     * @param ballList new batch of data containing ball list
+     */
     public void swapData(List<String> ballList) {
         mBallList = ballList;
         notifyDataSetChanged();
     }
 
-    // Clear data set of Recycler View
+    /**
+     * Call this method to clear the data set of Recycler View
+     */
     public void clearData() {
         mBallList.clear();
         notifyDataSetChanged();
