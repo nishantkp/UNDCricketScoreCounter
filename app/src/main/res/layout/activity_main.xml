@@ -161,7 +161,7 @@
                 <Button
                     android:id="@+id/btn_team_a_out"
                     style="@style/homeScreenWicketButton"
-                    android:enabled="@{!scoreMatrix.isTeamAAllOut()}"
+                    android:enabled="@{scoreMatrix.teamAScoreButtonStatus}"
                     android:onClick="@{()->presenter.calculateTeamAWicket()}"
                     android:text="@string/wicket_label"
                     android:textAllCaps="false" />
@@ -286,7 +286,7 @@
                 <Button
                     android:id="@+id/btn_team_b_out"
                     style="@style/homeScreenWicketButton"
-                    android:enabled="@{!scoreMatrix.isTeamBAllOut()}"
+                    android:enabled="@{scoreMatrix.teamBScoreButtonStatus}"
                     android:onClick="@{()->presenter.calculateTeamBWicket()}"
                     android:text="@string/wicket_label"
                     android:textAllCaps="false" />

@@ -15,7 +15,7 @@ public class ScoreMatrix extends BaseObservable {
     private int teamABall = 0;
     private int teamAWicket = 0;
     private double teamASr = 0.0;
-    private boolean teamAScoreButtonStatus = true;
+    private boolean teamAScoreButtonStatus = false;
 
     /* Team B performance matrix */
     private String teamBName;
@@ -23,7 +23,7 @@ public class ScoreMatrix extends BaseObservable {
     private int teamBBall = 0;
     private int teamBWicket = 0;
     private double teamBSr = 0.0;
-    private boolean teamBScoreButtonStatus = true;
+    private boolean teamBScoreButtonStatus = false;
 
     public void setTeamAName(String name) {
         teamAName = name;
