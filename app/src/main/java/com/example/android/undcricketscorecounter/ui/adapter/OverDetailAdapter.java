@@ -7,28 +7,28 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.example.android.undcricketscorecounter.R;
-import com.example.android.undcricketscorecounter.databinding.BallDetailListItemBinding;
+import com.example.android.undcricketscorecounter.databinding.OverDetailListItemBinding;
 
 import java.util.List;
 
-public class BallDetailAdapter
-        extends RecyclerView.Adapter<BallDetailAdapter.BallDetailViewHolder> {
+public class OverDetailAdapter
+        extends RecyclerView.Adapter<OverDetailAdapter.OverDetailViewHolder> {
     private List<String> mBallList;
 
-    public BallDetailAdapter(List<String> ball) {
+    public OverDetailAdapter(List<String> ball) {
         mBallList = ball;
     }
 
     @NonNull
     @Override
-    public BallDetailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        BallDetailListItemBinding binding = BallDetailListItemBinding
+    public OverDetailViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        OverDetailListItemBinding binding = OverDetailListItemBinding
                 .inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new BallDetailViewHolder(binding);
+        return new OverDetailViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BallDetailViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OverDetailViewHolder holder, int position) {
         int resourceId;
         if (mBallList.get(position).equals("W")) {
             resourceId = R.drawable.wicket_circle;
@@ -61,11 +61,11 @@ public class BallDetailAdapter
     /**
      * ViewHolder
      */
-    class BallDetailViewHolder extends RecyclerView.ViewHolder {
+    class OverDetailViewHolder extends RecyclerView.ViewHolder {
 
-        private final BallDetailListItemBinding binding;
+        private final OverDetailListItemBinding binding;
 
-        BallDetailViewHolder(BallDetailListItemBinding binding) {
+        OverDetailViewHolder(OverDetailListItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

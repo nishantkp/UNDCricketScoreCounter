@@ -38,7 +38,7 @@ import android.widget.LinearLayout;
 import com.example.android.undcricketscorecounter.R;
 import com.example.android.undcricketscorecounter.databinding.ActivityMainBinding;
 import com.example.android.undcricketscorecounter.model.DataManager;
-import com.example.android.undcricketscorecounter.ui.adapter.BallDetailAdapter;
+import com.example.android.undcricketscorecounter.ui.adapter.OverDetailAdapter;
 import com.example.android.undcricketscorecounter.ui.model.ScoreMatrix;
 
 import java.util.List;
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
         implements ScoreContract.view {
     private ActivityMainBinding binding;
     private ScorePresenter presenter;
-    private BallDetailAdapter adapter;
+    private OverDetailAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         binding.setPresenter(presenter);
 
         binding.overDetail.rvOverDetail.setHasFixedSize(true);
-        adapter = new BallDetailAdapter(null);
+        adapter = new OverDetailAdapter(null);
         RecyclerView.LayoutManager layoutManager =
                 new LinearLayoutManager(this, LinearLayout.HORIZONTAL, true);
         binding.overDetail.rvOverDetail.setLayoutManager(layoutManager);
