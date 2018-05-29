@@ -2,9 +2,11 @@ package com.example.android.undcricketscorecounter.ui.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.example.android.undcricketscorecounter.R;
 import com.example.android.undcricketscorecounter.databinding.BallDetailListItemBinding;
 
 import java.util.List;
@@ -27,7 +29,16 @@ public class BallDetailAdapter
 
     @Override
     public void onBindViewHolder(@NonNull BallDetailViewHolder holder, int position) {
+        int resourceId;
+        if (mBallList.get(position).equals("W")) {
+            resourceId = R.drawable.wicket_circle;
+        } else if (TextUtils.isEmpty(mBallList.get(position))) {
+            resourceId = R.drawable.run_circle;
+        } else {
+            resourceId = R.drawable.dot_ball_circle;
+        }
         holder.binding.tvBallDetail.setText(mBallList.get(position));
+        holder.binding.tvBallDetail.setBackgroundResource(resourceId);
     }
 
     @Override

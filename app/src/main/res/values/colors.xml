@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ The following license applies and this license notice
   ~ must be included in all works derived from this project.
   ~
@@ -36,4 +35,9 @@
     <color name="wicketColor">#009688</color>
 
     <color name="teamSelectionColorAccent">#F9AA33</color>
+
+    <!--detail colors per each ball-->
+    <color name="colorRun">#90A4AE</color>
+    <color name="colorWicket">#b71c1c</color>
+    <color name="colorDotBall">#546E7A</color>
 </resources>

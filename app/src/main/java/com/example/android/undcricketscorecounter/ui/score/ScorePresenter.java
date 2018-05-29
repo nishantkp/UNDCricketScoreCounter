@@ -113,7 +113,7 @@ public class ScorePresenter extends BasePresenter<ScoreContract.view>
             ballList.clear();
             totalBall = 0;
         }
-        ballList.add(totalBall, "0");
+        ballList.add(totalBall, "");
         getView().updateBallView(ballList);
         matrix.setTeamABall(1);
         getView().viewPerformanceMatrix(matrix);
